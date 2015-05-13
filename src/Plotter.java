@@ -21,8 +21,6 @@ public class Plotter {
 
         ArrayList x = new Importer(); */
 
-        // Scanner machen   -> https://www.youtube.com/watch?v=8gLc-ne_ni0
-
         Variable variable = readFile("zuLesendesFile.txt");  //http://www.c4learn.com/java/java-returning-object-from-method/
 
         System.out.println(variable.getName());
