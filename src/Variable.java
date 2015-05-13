@@ -16,4 +16,8 @@ public class Variable {
     public String getName(){
         return name;
     }
+
+    public float addValueFloat(float wert){
+        return wert;
+    }
 }
