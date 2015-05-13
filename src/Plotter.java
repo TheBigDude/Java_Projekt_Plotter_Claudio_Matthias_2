@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 /**
  * Created by Claudio on 09.05.2015.
  */
@@ -10,47 +11,53 @@ import java.util.Scanner;
 public class Plotter {
     public static void main(String[] args) {
 
-        // File auswählen und der Methode übergeben
+        //Variable variable1 = readFile("zuLesendesFile.txt");
+        //Variable variable2 = readFile("zuLesendesFile.txt");
 
-        /* System.out.println("Welche Datei soll importiert werden: ");
-        Scanner console = new Scanner(System.in);
-        String x = console.next();
+        ArrayList<Variable> beideObjekte = readFile("zuLesendesFile.txt");
+        Variable variable1 = beideObjekte.get(0);
+        Variable variable2 = beideObjekte.get(1);
 
-        File zuImportierendesFile = new File("zuLesendesFile.txt");
-        Importer importerObjekt = new Importer(zuImportierendesFile);
 
-        ArrayList x = new Importer(); */
-
-        Variable variable = readFile("zuLesendesFile.txt");  //http://www.c4learn.com/java/java-returning-object-from-method/
-
-        System.out.println(variable.getName());
-
-        //System.out.println(ob1.name);
-
+        System.out.println(variable1.getName());
+        System.out.println(variable1.getValues());
+        System.out.println(variable2.getName());
+        System.out.println(variable2.getValues());
     }
 
-    public static Variable readFile(String fileName){
+    public static ArrayList<Variable> readFile(String fileName) {
         File inputFileObjekt = new File(fileName);
-        Scanner fileScannerObjekt = null ;
-        Variable variablenObjekt = null;
+        Scanner fileScannerObjekt = null;
+        Variable variablenObjekt1;
+        Variable variablenObjekt2;
         try {
             fileScannerObjekt = new Scanner(inputFileObjekt);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        int cnt = 0;
+        ArrayList<Variable> dataModelObjekt = new ArrayList<Variable>();
+        while (fileScannerObjekt != null && fileScannerObjekt.hasNextLine()) {
 
-        if (fileScannerObjekt != null && fileScannerObjekt.hasNextLine()) {
-
-            ArrayList<String> importierteWerteArray = new ArrayList<String>();
 
             String line = fileScannerObjekt.nextLine();
+            String[] parts = line.split("   ");
+            String variable1 = parts[0];
+            String variable2 = parts[1];
 
-            importierteWerteArray.add(line);
 
-            variablenObjekt = new Variable("lolo", importierteWerteArray);
+            variablenObjekt1 = new Variable(variable1, cnt);
+            variablenObjekt2 = new Variable(variable2, cnt);
+
+
+
+
+            cnt = cnt + 1;
         }
+        dataModelObjekt.add(variablenObjekt1);
+        dataModelObjekt.add(variablenObjekt2);
+        return dataModelObjekt;
 
-        return variablenObjekt;
 
     }
 

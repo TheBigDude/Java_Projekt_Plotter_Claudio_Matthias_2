@@ -5,19 +5,29 @@ import java.util.ArrayList;
 
 public class Variable {
 
-    String name;
-    ArrayList werte;
+    String variableName;
+    ArrayList values;
 
-    public Variable(String n, ArrayList<String> w){
-        name = n;
-        werte = w;
+
+    public Variable(String variable, int cnt){
+        if (cnt<=1) {
+            float value = Float.valueOf(variable);
+            values.add(value);
+        }
+        else {
+            variableName = variable;
+        }
+
+
+
     }
 
     public String getName(){
-        return name;
+        return variableName;
     }
 
-    public float addValueFloat(float wert){
-        return wert;
+    public ArrayList<Float> getValues(){
+        return values;
+
     }
 }
