@@ -1,5 +1,5 @@
 /**
- * Created by Claudio on 10.05.2015.
+ * Created by Matthias on 15.05.2015.
  */
 import java.util.ArrayList;
 
@@ -9,18 +9,13 @@ public class Variable {
     ArrayList values;
 
 
-    public Variable(String variable, int cnt){
-        if (cnt<=1) {
-            float value = Float.valueOf(variable);
-            values.add(value);
-        }
-        else {
-            variableName = variable;
-        }
-
-
-
+    public Variable(String variable, ArrayList<Float> values){
+        variableName = variable;
+        this.values = values;
     }
+
+
+
 
     public String getName(){
         return variableName;
