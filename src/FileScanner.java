@@ -111,13 +111,21 @@ public class FileScanner {
                 return dataModelObject;
 
             } catch (java.lang.NumberFormatException e) {
-                do {
+                cnt = 0;
+
+                    try {
+                        fileScannerObject = new java.util.Scanner(inputFileObject);
+                    } catch (FileNotFoundException e1) {
+                        e.printStackTrace();
+                    }
+                while (fileScannerObject.hasNextLine()){
                     String line = fileScannerObject.nextLine();
                     String[] parts = line.split("\t");
                     String variable1 = parts[0];
                     String variable2 = parts[1];
 
                     if (cnt >= 1) {
+
                         float value1 = Float.valueOf(variable1);
                         float value2 = Float.valueOf(variable2);
                         values1.add(value1);
@@ -127,7 +135,7 @@ public class FileScanner {
                         variableName2 = variable2;
                     }
                     cnt = cnt + 1;
-                } while (fileScannerObject.hasNextLine());
+                } ;
 
                 variableObject1 = new Variable(variableName1, values1);
                 variableObject2 = new Variable(variableName2, values2);

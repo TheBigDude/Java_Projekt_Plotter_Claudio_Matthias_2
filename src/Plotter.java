@@ -1,27 +1,36 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 /**
  * Created by Matthias on 15.05.2015.
  */
 public class Plotter {
-    public static void main(String[] args) {
-    FileScanner File1 = ScannFile("test2.txt");
-    System.out.println(File1.getNameVariable1());
-    System.out.println(File1.getNameVariable2());
-    System.out.println(File1.getValuesVariable1());
-    System.out.println(File1.getValuesVariable2());
+    public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PlotterGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PlotterGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PlotterGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PlotterGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PlotterGui().setVisible(true);
+            }
+        });
     }
-    public static FileScanner ScannFile(String fileToScann){
-        FileScanner File1 = new FileScanner(fileToScann);
-        return File1;
-    }
-
 
 }
+
+
+
+
