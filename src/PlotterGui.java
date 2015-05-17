@@ -1,4 +1,4 @@
-import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +25,7 @@ public class PlotterGui extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
-
+        jColorButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jSlider1 = new javax.swing.JSlider();
@@ -55,11 +55,11 @@ public class PlotterGui extends javax.swing.JFrame {
         panel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 907, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 598, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -83,6 +83,13 @@ public class PlotterGui extends javax.swing.JFrame {
             }
         });
 
+
+        jColorButton.setText("Farbe Anwenden");
+        jColorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jColorButtonMouseClicked(evt);
+            }
+        });
         jLabel1.setText("Grösse der Punkte");
 
         jLabel2.setText("Y - Achse");
@@ -122,31 +129,35 @@ public class PlotterGui extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
-                                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(jCheckBox1)
-                                                        .addGap(29, 29, 29))
-                                                .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel1))
-                                        .addComponent(jLabel2)
-                                        .addComponent(jRadioButton1)
-                                        .addComponent(jRadioButton2)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jRadioButton3)
-                                        .addComponent(jRadioButton4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                        .addComponent(jCheckBox1)
+                                                                        .addGap(29, 29, 29))
+                                                                .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jLabel1))
+                                                        .addComponent(jLabel2)
+                                                        .addComponent(jRadioButton1)
+                                                        .addComponent(jRadioButton2)
+                                                        .addComponent(jLabel3)
+                                                        .addComponent(jRadioButton3)
+                                                        .addComponent(jRadioButton4))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jColorButton)
+                                                .addGap(233, 233, 233))))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,67 +184,74 @@ public class PlotterGui extends javax.swing.JFrame {
                                                 .addComponent(jLabel1)
                                                 .addGap(2, 2, 2)
                                                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jColorButton))
+                                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+
         pack();
     }
-
+    Color color = Color.BLUE;
     // Event Handlers;
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
-        JFileChooser fc = new JFileChooser();
-        fc.showOpenDialog(null);
-        String filename = fc.getSelectedFile().getName();
-        FileScanner File1 = ScannFile(filename);
-        ArrayList<Float> coordinatesX;
-        ArrayList<Float> coordinatesY;
-        ArrayList<Float> coordinates;
-        coordinatesX = File1.getValuesVariable1();
-
-        coordinatesY = File1.getValuesVariable2();
-        while(coordinatesX == null){};
-        if (coordinatesX != null && coordinatesY != null) {
-            ProcessVariablesForCircles processedValues;
-            processedValues = ProcessVariables(coordinatesX, coordinatesY);
-            coordinates = processedValues.getCoordinatesPoints();
-
-            int cnt = 0;
-            while (cnt < coordinates.size()) {
-                int x = Math.round(coordinates.get(cnt));
-                int y = Math.round(coordinates.get(cnt + 1));
-                int width = 20;
-                int height = width;
+    private void jColorButtonMouseClicked(java.awt.event.ActionEvent evt) {
+        color = jColorChooser1.getColor();
+        int cnt = 0;
+        while (cnt < coordinates.size()) {
+            int x = Math.round(coordinates.get(cnt));
+            int y = Math.round(coordinates.get(cnt + 1));
+            int width = 20;
+            int height = width;
 
 
-                Circle circle = new Circle(x, y, width, height);
-                panel1.addCircle(circle);
-                cnt = cnt + 2;
-            }
+            Circle circle = new Circle(x, y, width, height, color);
+            panel1.addCircle(circle);
+            cnt = cnt + 2;
         }
 
+
+
+
+
+}
+
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
+        ActionNewFile coordinates1 = NewAction();
+        coordinates = coordinates1.getCoordinates();
+        int cnt = 0;
+        while (cnt < coordinates.size()) {
+            int x = Math.round(coordinates.get(cnt));
+            int y = Math.round(coordinates.get(cnt + 1));
+            int width = 20;
+            int height = width;
+
+
+            Circle circle = new Circle(x, y, width, height, color);
+            panel1.addCircle(circle);
+            cnt = cnt + 2;
+        }
     }
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
     }
-    public static ProcessVariablesForCircles ProcessVariables(ArrayList<Float> coordinatesX, ArrayList<Float> coordinatesY){
-        ProcessVariablesForCircles processedValues = new ProcessVariablesForCircles(coordinatesX, coordinatesY);
-        return processedValues;
-    }
-    public static FileScanner ScannFile(String fileToScann) {
-        FileScanner File1 = new FileScanner(fileToScann);
-        return File1;
+    private ActionNewFile NewAction(){
+        ActionNewFile NewAction = new ActionNewFile();
+        return NewAction;
+
     }
 
 
     // Variables declaration - do not modify
+    ArrayList<Float> coordinates;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JCheckBox jCheckBox1;
@@ -257,6 +275,7 @@ public class PlotterGui extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSlider1;
+    private javax.swing.JButton jColorButton;
     // End of variables declaration
 
 
