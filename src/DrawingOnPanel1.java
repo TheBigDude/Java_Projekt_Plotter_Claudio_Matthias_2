@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Matthias on 17.05.2015.
  */
-class DrawingPanel extends JPanel {
+class DrawingOnPanel1 extends JPanel {
 
     List<Circle> circles = new ArrayList<Circle>();
 
@@ -22,9 +22,13 @@ class DrawingPanel extends JPanel {
         circles.add(circle);
         repaint();
     }
-
+    public void clearPanel1(){
+        removeAll();
+        circles.clear();
+    }
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(900, 600);
     }
+
 }

@@ -6,7 +6,8 @@ import java.util.ArrayList;
  */
 public class ActionNewFile {
     ArrayList<Float> coordinates;
-
+    String NameVariable1;
+    String NameVariable2;
     public ActionNewFile() {
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(null);
@@ -18,6 +19,9 @@ public class ActionNewFile {
         coordinatesX = File1.getValuesVariable1();
 
         coordinatesY = File1.getValuesVariable2();
+        NameVariable1 = File1.getNameVariable1();
+        NameVariable2 = File1.getNameVariable2();
+
         while (coordinatesX == null) {
         }
         ;
@@ -42,5 +46,11 @@ public class ActionNewFile {
 
     public ArrayList<Float> getCoordinates() {
         return coordinates;
+    }
+    public String getNameVariable1(){
+        return NameVariable1;
+    }
+    public String getNameVariable2(){
+        return NameVariable2;
     }
 }

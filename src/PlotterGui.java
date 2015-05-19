@@ -26,9 +26,8 @@ public class PlotterGui extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jColorButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jSlider1 = new javax.swing.JSlider();
+        jSizeSlider = new javax.swing.JSlider(Min_Size,Max_Size,Size_INIT);
         jLabel1 = new javax.swing.JLabel();
         jColorChooser1 = new javax.swing.JColorChooser();
         jLabel2 = new javax.swing.JLabel();
@@ -90,23 +89,49 @@ public class PlotterGui extends javax.swing.JFrame {
                 jColorButtonMouseClicked(evt);
             }
         });
+
+        jSizeSlider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jSizeSliderMouseClicked(evt);
+            }
+        });
+        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton1MouseClicked(evt);
+            }
+        });
+        jRadioButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton2MouseClicked(evt);
+            }
+        });
+        jRadioButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton3MouseClicked(evt);
+            }
+        });
+        jRadioButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton4MouseClicked(evt);
+            }
+        });
         jLabel1.setText("Grösse der Punkte");
 
         jLabel2.setText("Y - Achse");
 
         buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("jRadioButton1");
+        jRadioButton1.setText("Variable 1");
 
         buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("jRadioButton2");
+        jRadioButton2.setText("Variable 2");
 
         jLabel3.setText("X - Achse");
 
         buttonGroup2.add(jRadioButton3);
-        jRadioButton3.setText("jRadioButton3");
+        jRadioButton3.setText("Variable 1");
 
         buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setText("jRadioButton4");
+        jRadioButton4.setText("Variable 2");
 
         jMenu1.setText("Datei");
 
@@ -144,7 +169,7 @@ public class PlotterGui extends javax.swing.JFrame {
                                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                                         .addComponent(jCheckBox1)
                                                                         .addGap(29, 29, 29))
-                                                                .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jSizeSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel1))
                                                         .addComponent(jLabel2)
@@ -183,7 +208,7 @@ public class PlotterGui extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jLabel1)
                                                 .addGap(2, 2, 2)
-                                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jSizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -197,47 +222,71 @@ public class PlotterGui extends javax.swing.JFrame {
         pack();
     }
     Color color = Color.BLUE;
+
     // Event Handlers;
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        if( jCheckBox1.isSelected()){
+            linesActivated = true;
+            deleteOnPanel1();
+            drawOnPanel1();
+        }
+        else{
+            linesActivated = true;
+            deleteOnPanel1();
+            linesActivated = false;
+            drawOnPanel1();
+
+        }
+    }
+
+    private void jSizeSliderMouseClicked(java.awt.event.MouseEvent evt) {
+        deleteOnPanel1();
+        width = jSizeSlider.getValue();
+        jSizeSlider.setValue(width);
+
+        drawOnPanel1();
+
+    }
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {
+        deleteOnPanel1();
+        drawOnPanel1();
+    }
+    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {
+        deleteOnPanel1();
+        drawOnPanel1();
+    }
+    private void jRadioButton3MouseClicked(java.awt.event.MouseEvent evt) {
+        deleteOnPanel1();
+        drawOnPanel1();
+
+    }
+    private void jRadioButton4MouseClicked(java.awt.event.MouseEvent evt) {
+        deleteOnPanel1();
+        drawOnPanel1();
     }
     private void jColorButtonMouseClicked(java.awt.event.ActionEvent evt) {
         color = jColorChooser1.getColor();
-        int cnt = 0;
-        while (cnt < coordinates.size()) {
-            int x = Math.round(coordinates.get(cnt));
-            int y = Math.round(coordinates.get(cnt + 1));
-            int width = 20;
-            int height = width;
-
-
-            Circle circle = new Circle(x, y, width, height, color);
-            panel1.addCircle(circle);
-            cnt = cnt + 2;
-        }
-
-
-
-
-
-}
-
+        deleteOnPanel1();
+        drawOnPanel2();
+        drawOnPanel1();
+        drawOnPanel2();
+    }
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
         ActionNewFile coordinates1 = NewAction();
         coordinates = coordinates1.getCoordinates();
-        int cnt = 0;
-        while (cnt < coordinates.size()) {
-            int x = Math.round(coordinates.get(cnt));
-            int y = Math.round(coordinates.get(cnt + 1));
-            int width = 20;
-            int height = width;
-
-
-            Circle circle = new Circle(x, y, width, height, color);
-            panel1.addCircle(circle);
-            cnt = cnt + 2;
-        }
+        String nameVariable1 = coordinates1.getNameVariable1();
+        String nameVariable2 = coordinates1.getNameVariable2();
+        jRadioButton1.setText(nameVariable1);
+        jRadioButton1.setSelected(false);
+        jRadioButton2.setText(nameVariable2);
+        jRadioButton2.setSelected(true);
+        jRadioButton3.setText(nameVariable1);
+        jRadioButton3.setSelected(true);
+        jRadioButton4.setText(nameVariable2);
+        jRadioButton4.setSelected(false);
+        drawOnPanel1();
+        drawOnPanel2();
     }
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,8 +297,71 @@ public class PlotterGui extends javax.swing.JFrame {
         return NewAction;
 
     }
+    public void deleteOnPanel1(){
+        panel1.clearPanel1();
+    }
+    public void deleteOnPanel2(){
+        jPanel2.clearPanel2();
+    }
+    public void drawOnPanel1() {
+        if (jRadioButton1.isSelected() && jRadioButton4.isSelected()) {
+            int cnt = 0;
+            while (cnt < coordinates.size()) {
+                int y = Math.round(coordinates.get(cnt));
+                int x = Math.round(coordinates.get(cnt + 1));
+                int height = width;
+                circle = makeCircle(x - height / 2, y - width / 2, height, width, color, linesActivated, coordinates);
+                panel1.addCircle(circle);
+                cnt = cnt +2;
+            }
+        }
+        if(jRadioButton2.isSelected() && jRadioButton3.isSelected() ) {
+            int cnt = 0;
+            while (cnt < coordinates.size()) {
+                int x = Math.round(coordinates.get(cnt));
+                int y = Math.round(coordinates.get(cnt + 1));
+                int height = width;
+                circle = makeCircle(x - height / 2, y - width / 2, height, width, color, linesActivated, coordinates);
+                panel1.addCircle(circle);
+                cnt = cnt + 2;
+            }
+        }
+        if(jRadioButton1.isSelected() && jRadioButton3.isSelected() ) {
+            int cnt = 0;
+            while (cnt < coordinates.size()) {
+                int x = Math.round(coordinates.get(cnt));
+                int height = width;
+                circle = makeCircle(x - height / 2, x - width / 2, height, width, color, linesActivated, coordinates);
 
+                panel1.addCircle(circle);
+                cnt = cnt + 2;
+            }
+        }
+        if(jRadioButton2.isSelected() && jRadioButton4.isSelected() ) {
+            int cnt = 0;
+            while (cnt < coordinates.size()) {
+                int y = Math.round(coordinates.get(cnt + 1));
+                int height = width;
+                circle = makeCircle(y - height / 2, y - width / 2, height, width, color, linesActivated, coordinates);
+                panel1.addCircle(circle);
+                cnt = cnt + 2;
+            }
+        }
+    }
 
+    public void drawOnPanel2(){
+        histogram = makeHistogram(coordinates,color);
+        jPanel2.addHistogram(histogram);
+    }
+
+    public static Histogram makeHistogram(ArrayList<Float> coordinates, Color color){
+        Histogram newHistogram = new Histogram(coordinates, color);
+        return newHistogram;
+    }
+    public static Circle makeCircle(int x, int y, int width, int height, Color color, Boolean linesActivated, ArrayList<Float> coordinates) {
+        Circle newCircle = new Circle(x,y,width,height,color,linesActivated, coordinates);
+        return newCircle;
+    }
     // Variables declaration - do not modify
     ArrayList<Float> coordinates;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -265,8 +377,8 @@ public class PlotterGui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private final DrawingPanel panel1 = new DrawingPanel();
-    private javax.swing.JPanel jPanel2;
+    private DrawingOnPanel1 panel1 = new DrawingOnPanel1();
+    private DrawingOnPanel2 jPanel2 = new DrawingOnPanel2();
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JRadioButton jRadioButton1;
@@ -274,8 +386,15 @@ public class PlotterGui extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSlider jSlider1;
+    private javax.swing.JSlider jSizeSlider;
     private javax.swing.JButton jColorButton;
+    static final int Min_Size = 1;
+    static final int Max_Size = 40;
+    static final int Size_INIT = 10;
+    int width = 10;
+    Circle circle;
+    Histogram histogram;
+    private Boolean linesActivated = false;
     // End of variables declaration
 
 
