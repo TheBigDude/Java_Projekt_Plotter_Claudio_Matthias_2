@@ -8,8 +8,8 @@ class Circle {
     Color color;
     int x, y, width, height;
     boolean activateLines;
-    ArrayList<Float> coordinatesLines;
-    public Circle(int x, int y, int width, int height, Color color, Boolean linesActivated, ArrayList<Float> cordsLine) {
+    ArrayList<Integer> coordinatesLines;
+    public Circle(int x, int y, int width, int height, Color color, Boolean linesActivated, ArrayList<Integer> cordsLine) {
         activateLines = linesActivated;
         this.x = x;
         this.y = y;

@@ -8,6 +8,8 @@ public class ActionNewFile {
     ArrayList<Float> coordinates;
     String NameVariable1;
     String NameVariable2;
+    float maxX;
+    float maxY;
     public ActionNewFile() {
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(null);
@@ -19,6 +21,10 @@ public class ActionNewFile {
         coordinatesX = File1.getValuesVariable1();
 
         coordinatesY = File1.getValuesVariable2();
+        Float maxV1;
+        Float maxV2;
+
+
         NameVariable1 = File1.getNameVariable1();
         NameVariable2 = File1.getNameVariable2();
 
@@ -26,15 +32,17 @@ public class ActionNewFile {
         }
         ;
         if (coordinatesX != null && coordinatesY != null) {
-            ProcessVariablesForCircles processedValues;
+            ProcessVariables processedValues;
             processedValues = ProcessVariables(coordinatesX, coordinatesY);
             coordinates = processedValues.getCoordinatesPoints();
+            maxX = processedValues.getMaxX();
+            maxY = processedValues.getMaxY();
 
         }
     }
 
-    public static ProcessVariablesForCircles ProcessVariables(ArrayList<Float> coordinatesX, ArrayList<Float> coordinatesY) {
-        ProcessVariablesForCircles processedValues = new ProcessVariablesForCircles(coordinatesX, coordinatesY);
+    public static ProcessVariables ProcessVariables(ArrayList<Float> coordinatesX, ArrayList<Float> coordinatesY) {
+        ProcessVariables processedValues = new ProcessVariables(coordinatesX, coordinatesY);
         return processedValues;
     }
 
@@ -52,5 +60,21 @@ public class ActionNewFile {
     }
     public String getNameVariable2(){
         return NameVariable2;
+    }
+    public float getFactorV1X(){
+        float factorV1X = 450/maxX;
+        return factorV1X;
+    }
+    public float getFactorV1Y(){
+        float factorV1Y = 300/maxX;
+        return factorV1Y;
+    }
+    public float getFactorV2X(){
+        float factorV2X = 450/maxY;
+        return factorV2X;
+    }
+    public float getFactorV2Y(){
+        float factorV2Y = 300/maxY;
+        return factorV2Y;
     }
 }

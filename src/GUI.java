@@ -4,12 +4,12 @@ import java.util.ArrayList;
 /**
  * Created by Matthias on 17.05.2015.
  */
-public class PlotterGui extends javax.swing.JFrame {
+public class GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form ContactEditorUI
      */
-    public PlotterGui() {
+    public GUI() {
         initComponents();
     }
 
@@ -228,12 +228,14 @@ public class PlotterGui extends javax.swing.JFrame {
         if( jCheckBox1.isSelected()){
             linesActivated = true;
             deleteOnPanel1();
+            coordinateslines.clear();
             drawOnPanel1();
         }
         else{
             linesActivated = true;
             deleteOnPanel1();
             linesActivated = false;
+            coordinateslines.clear();
             drawOnPanel1();
 
         }
@@ -243,29 +245,34 @@ public class PlotterGui extends javax.swing.JFrame {
         deleteOnPanel1();
         width = jSizeSlider.getValue();
         jSizeSlider.setValue(width);
-
+        coordinateslines.clear();
         drawOnPanel1();
 
     }
     private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {
         deleteOnPanel1();
+        coordinateslines.clear();
         drawOnPanel1();
     }
     private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {
         deleteOnPanel1();
+        coordinateslines.clear();
         drawOnPanel1();
     }
     private void jRadioButton3MouseClicked(java.awt.event.MouseEvent evt) {
         deleteOnPanel1();
+        coordinateslines.clear();
         drawOnPanel1();
 
     }
     private void jRadioButton4MouseClicked(java.awt.event.MouseEvent evt) {
         deleteOnPanel1();
+        coordinateslines.clear();
         drawOnPanel1();
     }
     private void jColorButtonMouseClicked(java.awt.event.ActionEvent evt) {
         color = jColorChooser1.getColor();
+        coordinateslines.clear();
         deleteOnPanel1();
         drawOnPanel2();
         drawOnPanel1();
@@ -275,6 +282,17 @@ public class PlotterGui extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
         ActionNewFile coordinates1 = NewAction();
         coordinates = coordinates1.getCoordinates();
+        coordinates1.getFactorV2X();
+        factorV1X = coordinates1.getFactorV1X();
+        factorV1Y = coordinates1.getFactorV1Y();
+        factorV2X = coordinates1.getFactorV2X();
+        factorV2Y = coordinates1.getFactorV2Y();
+        int cnt =0;
+        while(cnt<coordinates.size()){
+            coordinateslines.add(400+Math.round(factorV1X*coordinates.get(cnt)));
+            coordinateslines.add(250-Math.round(factorV2Y*coordinates.get(cnt+1)));
+            cnt= cnt+2;
+        }
         String nameVariable1 = coordinates1.getNameVariable1();
         String nameVariable2 = coordinates1.getNameVariable2();
         jRadioButton1.setText(nameVariable1);
@@ -287,6 +305,7 @@ public class PlotterGui extends javax.swing.JFrame {
         jRadioButton4.setSelected(false);
         drawOnPanel1();
         drawOnPanel2();
+        System.out.println(panel1.getHeight());
     }
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,48 +324,79 @@ public class PlotterGui extends javax.swing.JFrame {
     }
     public void drawOnPanel1() {
         if (jRadioButton1.isSelected() && jRadioButton4.isSelected()) {
+            int cnt1 = 0;
+            while(cnt1<coordinates.size()){
+                coordinateslines.add(400+Math.round((factorV2X*coordinates.get(cnt1+1))));
+                coordinateslines.add(350-Math.round((factorV1Y*coordinates.get(cnt1))));
+                cnt1= cnt1+2;
+            }
             int cnt = 0;
             while (cnt < coordinates.size()) {
-                int y = Math.round(coordinates.get(cnt));
-                int x = Math.round(coordinates.get(cnt + 1));
+                int y = 350-Math.round((factorV1Y*coordinates.get(cnt)));
+                int x = 400+Math.round((factorV2X*coordinates.get(cnt+1)));
                 int height = width;
-                circle = makeCircle(x - height / 2, y - width / 2, height, width, color, linesActivated, coordinates);
+                circle = makeCircle(x - height / 2, y - width / 2, height, width, color, linesActivated, coordinateslines);
                 panel1.addCircle(circle);
                 cnt = cnt +2;
             }
         }
         if(jRadioButton2.isSelected() && jRadioButton3.isSelected() ) {
+            int cnt1 = 0;
+            while(cnt1<coordinates.size()) {
+                coordinateslines.add(400 + Math.round((factorV1X*coordinates.get(cnt1))));
+                coordinateslines.add(350 - Math.round((factorV2Y*coordinates.get(cnt1+1))));
+                cnt1 = cnt1 + 2;
+            }
             int cnt = 0;
             while (cnt < coordinates.size()) {
-                int x = Math.round(coordinates.get(cnt));
-                int y = Math.round(coordinates.get(cnt + 1));
+                int x =400+ Math.round((factorV1X*coordinates.get(cnt)));
+                int y =350- Math.round((factorV2Y*coordinates.get(cnt+1)));
                 int height = width;
-                circle = makeCircle(x - height / 2, y - width / 2, height, width, color, linesActivated, coordinates);
+                circle = makeCircle(x - height / 2, y - width / 2, height, width, color, linesActivated, coordinateslines);
                 panel1.addCircle(circle);
                 cnt = cnt + 2;
             }
         }
         if(jRadioButton1.isSelected() && jRadioButton3.isSelected() ) {
+            int cnt1 = 0;
+            while(cnt1<coordinates.size()) {
+                coordinateslines.add(400 + Math.round((factorV1X*coordinates.get(cnt1))));
+                coordinateslines.add(350 - Math.round((factorV1Y*coordinates.get(cnt1))));
+                cnt1 = cnt1 + 2;
+            }
             int cnt = 0;
             while (cnt < coordinates.size()) {
-                int x = Math.round(coordinates.get(cnt));
+
+                int x = 400 +Math.round((factorV1X*coordinates.get(cnt)));
+                int y = 350-Math.round((factorV1Y*coordinates.get(cnt)));
+
                 int height = width;
-                circle = makeCircle(x - height / 2, x - width / 2, height, width, color, linesActivated, coordinates);
+                circle = makeCircle(x - height / 2, y - width / 2, height, width, color, linesActivated, coordinateslines);
 
                 panel1.addCircle(circle);
                 cnt = cnt + 2;
             }
         }
         if(jRadioButton2.isSelected() && jRadioButton4.isSelected() ) {
+            int cnt1 = 0;
+            while(cnt1<coordinates.size()) {
+                coordinateslines.add(400 + Math.round((factorV2X*coordinates.get(cnt1+1))));
+                coordinateslines.add(350 - Math.round((factorV2Y*coordinates.get(cnt1+1))));
+                cnt1 = cnt1 + 2;
+            }
             int cnt = 0;
             while (cnt < coordinates.size()) {
-                int y = Math.round(coordinates.get(cnt + 1));
+
+                int y = 400 + Math.round((factorV2Y*coordinates.get(cnt+1)));
+                int x = 350 -Math.round((factorV2X*coordinates.get(cnt+1)));
+
                 int height = width;
-                circle = makeCircle(y - height / 2, y - width / 2, height, width, color, linesActivated, coordinates);
+                circle = makeCircle(x - height / 2, y - width / 2, height, width, color, linesActivated, coordinateslines);
                 panel1.addCircle(circle);
                 cnt = cnt + 2;
             }
         }
+
     }
 
     public void drawOnPanel2(){
@@ -358,7 +408,7 @@ public class PlotterGui extends javax.swing.JFrame {
         Histogram newHistogram = new Histogram(coordinates, color);
         return newHistogram;
     }
-    public static Circle makeCircle(int x, int y, int width, int height, Color color, Boolean linesActivated, ArrayList<Float> coordinates) {
+    public static Circle makeCircle(int x, int y, int width, int height, Color color, Boolean linesActivated, ArrayList<Integer> coordinates) {
         Circle newCircle = new Circle(x,y,width,height,color,linesActivated, coordinates);
         return newCircle;
     }
@@ -372,15 +422,11 @@ public class PlotterGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private DrawingOnPanel1 panel1 = new DrawingOnPanel1();
     private DrawingOnPanel2 jPanel2 = new DrawingOnPanel2();
-    private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -391,6 +437,11 @@ public class PlotterGui extends javax.swing.JFrame {
     static final int Min_Size = 1;
     static final int Max_Size = 40;
     static final int Size_INIT = 10;
+    float factorV1X;
+    float factorV1Y;
+    float factorV2X;
+    float factorV2Y;
+    ArrayList<Integer> coordinateslines = new ArrayList<Integer>();
     int width = 10;
     Circle circle;
     Histogram histogram;
