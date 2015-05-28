@@ -28,9 +28,6 @@ public class DrawingOnPanel1 extends JPanel {
         removeAll();
         circles = null;
     }
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(900, 600);
-    }
+
 
 }

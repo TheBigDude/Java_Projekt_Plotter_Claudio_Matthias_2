@@ -22,15 +22,10 @@ public class DrawingOnPanel2 extends JPanel {
     }
     public void clearPanel2(){
         removeAll();
-
+        histograms = null;
     }
     public void updatePanel(){
         repaint();
     }
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(900, 400);
-    }
-
 }
 
