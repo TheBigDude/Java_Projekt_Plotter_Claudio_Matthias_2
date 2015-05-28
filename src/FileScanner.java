@@ -7,37 +7,20 @@ import java.util.ArrayList;
  */
 public class FileScanner {
     String file;
-    String NameVariable1;
-    String NameVariable2;
-    ArrayList<Float> ValuesVariable1;
-    ArrayList<Float> ValuesVariable2;
-
+    Variable variable1;
+    Variable variable2;
     public FileScanner(String filename){
         file = filename;
         ArrayList<Variable> bothObjects = readFile(file);
-        Variable variable1 = bothObjects.get(0);
-        Variable variable2 = bothObjects.get(1);
-        NameVariable1 = variable1.getName();
-        NameVariable2 = variable2.getName();
-        ValuesVariable1 = variable1.getValues();
-        ValuesVariable2 = variable2.getValues();
+        variable1 = bothObjects.get(0);
+        variable2 = bothObjects.get(1);
     }
-    public String getNameVariable1() {
-        return NameVariable1;
+    public Variable getVariable1(){
+        return variable1;
     }
-
-    public String getNameVariable2() {
-        return NameVariable2;
+    public Variable getVariable2(){
+        return variable2;
     }
-
-    public ArrayList<Float> getValuesVariable1() {
-        return ValuesVariable1;
-    }
-
-    public ArrayList<Float> getValuesVariable2() {
-        return ValuesVariable2;
-    }
-
     private static ArrayList<Variable> readFile(String fileName) {
         File inputFileObject = new File(fileName);
         java.util.Scanner fileScannerObject = null;
@@ -117,19 +100,12 @@ public class FileScanner {
                 e.printStackTrace();
             }
             while (fileScannerObject.hasNextLine()) {
-                System.out.println(cnt);
-
                 String line = fileScannerObject.nextLine();
-
-
                 String[] parts;
                 parts = line.split("\t");
-
                 String variable1 = parts[0];
                 String variable2 = parts[1];
-
                 if (cnt >= 1) {
-
                     float value1 = Float.valueOf(variable1);
                     float value2 = Float.valueOf(variable2);
                     values1.add(value1);

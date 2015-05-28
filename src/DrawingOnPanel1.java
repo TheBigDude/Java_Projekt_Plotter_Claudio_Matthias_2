@@ -1,30 +1,32 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Matthias on 17.05.2015.
  */
-class DrawingOnPanel1 extends JPanel {
-
-    List<Circle> circles = new ArrayList<Circle>();
+public class DrawingOnPanel1 extends JPanel {
+   CreateCircles circles;
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Circle circle : circles) {
-            circle.draw(g);
+        if (circles != null){
+            circles.draw(g);
         }
     }
 
-    public void addCircle(Circle circle) {
-        circles.add(circle);
+    public void addCircles(CreateCircles circle) {
+        circles=circle;
         repaint();
     }
-    public void clearPanel1(){
+
+
+    public void updatePanel(){
+        repaint();
+    }
+    public void clearPanel(){
         removeAll();
-        circles.clear();
+        circles = null;
     }
     @Override
     public Dimension getPreferredSize() {

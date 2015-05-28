@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -5,42 +6,81 @@ import java.util.Collections;
  * Created by Matthias on 17.05.2015.
  */
 public class ProcessVariables {
-    ArrayList<Float> coordinatesPoints = new ArrayList<Float>();
-    ArrayList<Float>variableA;
-    ArrayList<Float>variableB;
-    float maxX;
-    float maxY;
-    ArrayList<Float>absoluteValuesA = new ArrayList<Float>();
-    ArrayList<Float>absoluteValuesB = new ArrayList<Float>();
-    public ProcessVariables(ArrayList<Float> variableX, ArrayList<Float> variableY){
-        int numberOfVariables = variableX.size();
-        variableA= variableY;
-        variableB= variableX;
-        int cnt = 0;
-        while ( cnt<variableB.size()){
-            absoluteValuesB.add(Math.abs(variableB.get(cnt)));
-            absoluteValuesA.add(Math.abs(variableA.get(cnt)));
-            cnt++;
+    ArrayList<Float> coordinatesV1X = new ArrayList<Float>();
+    ArrayList<Float> coordinatesV2X = new ArrayList<Float>();
+    ArrayList<Float> coordinatesV2Y = new ArrayList<Float>();
+    ArrayList<Float> coordinatesV1Y = new ArrayList<Float>();
+    ArrayList<CreateCircles> allCircles = new ArrayList<CreateCircles>();
+    int width;
+    Color color;
+
+
+    public ProcessVariables(ActionNewFile File1, DrawingOnPanel1 panel1, int width, Color color) {
+        this.width=width;
+        this.color=color;
+        ArrayList<Float> valuesX;
+        ArrayList<Float> valuesY;
+        valuesX = File1.getVariable1().getValues();
+        valuesY = File1.getVariable2().getValues();
+        int panelWidth = panel1.getWidth();
+        int panelHeight = panel1.getHeight();
+        int border = 50;
+        int widthOfDrawing = panelWidth - 2 * border;
+        int heightOfDrawing = panelHeight - 2 * border;
+
+        float min = Collections.min(valuesX);
+        float max = Collections.max(valuesX);
+        float minY = Collections.min(valuesY);
+        float maxY = Collections.max(valuesY);
+        float range = max - min;
+        float rangeY = maxY - minY;
+        for (int cnt = 0; cnt < valuesX.size(); cnt++) {
+            float x = valuesX.get(cnt);
+            float y = valuesY.get(cnt);
+            float xBer;
+            float yBer;
+            if (min < 0) {
+                xBer = panelWidth-((widthOfDrawing / Math.abs(min) * x + widthOfDrawing) * Math.abs(min) / (range) + border);
+                coordinatesV1X.add(xBer);
+                xBer = panelHeight-((heightOfDrawing / Math.abs(min) * x + heightOfDrawing) * Math.abs(min) / (range) + border);
+                coordinatesV1Y.add(xBer);
+            } else {
+                xBer = panelWidth-((widthOfDrawing / Math.abs(min) * x - widthOfDrawing) * Math.abs(min) / (range) + border);
+                coordinatesV1X.add(xBer);
+                xBer = panelHeight-((heightOfDrawing / Math.abs(min) * x - heightOfDrawing) * Math.abs(min) / (range) + border);
+                coordinatesV1Y.add(xBer);
+            }
+            if (minY < 0) {
+                yBer = panelHeight-((heightOfDrawing / Math.abs(minY) * y + heightOfDrawing) * Math.abs(minY) / (rangeY) + border);
+                coordinatesV2Y.add(yBer);
+                yBer = panelWidth-((widthOfDrawing / Math.abs(minY) * y + widthOfDrawing) * Math.abs(minY) / (rangeY) + border);
+                coordinatesV2X.add(yBer);
+
+
+            } else {
+                yBer = panelHeight-((heightOfDrawing / Math.abs(minY) * y - heightOfDrawing) * Math.abs(minY) / (rangeY) + border);
+                coordinatesV2Y.add(yBer);
+                yBer = panelWidth-((widthOfDrawing / Math.abs(minY) * y - widthOfDrawing) * Math.abs(minY) / (rangeY) + border);
+                coordinatesV2X.add(yBer);
+            }
         }
-
-        maxX = Collections.max(absoluteValuesB);
-        maxY = Collections.max(absoluteValuesA);
-
-        int cnt1 = 0;
-        while(cnt1< numberOfVariables&& variableB != null){
-            coordinatesPoints.add(variableB.get(cnt1));
-            coordinatesPoints.add(variableA.get(cnt1));
-           cnt1++;
-        }
+        CreateCircles circles1 = makeCircles(coordinatesV1X,coordinatesV2Y,width,color);
+        allCircles.add(circles1);
+        CreateCircles circles2 = makeCircles(coordinatesV1X,coordinatesV1Y,width,color);
+        allCircles.add(circles2);
+        CreateCircles circles3 = makeCircles(coordinatesV2X,coordinatesV1Y,width,color);
+        allCircles.add(circles3);
+        CreateCircles circles4 = makeCircles(coordinatesV2X,coordinatesV2Y,width,color);
+        allCircles.add(circles4);
     }
-
-    public ArrayList<Float> getCoordinatesPoints(){
-        return coordinatesPoints;
+    private CreateCircles makeCircles(ArrayList<Float> coordinatesX, ArrayList<Float> coordinatesY, int width, Color color) {
+        CreateCircles createdCircles = new CreateCircles(coordinatesX,coordinatesY,width,color);
+        return createdCircles;
     }
-    public float getMaxX(){
-        return maxX;
-    }
-    public float getMaxY(){
-        return maxY;
+    public ArrayList<CreateCircles> getAllCircles(){
+        return allCircles;
     }
 }
+
+
+

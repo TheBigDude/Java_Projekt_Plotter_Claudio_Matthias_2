@@ -67,13 +67,13 @@ public class Histogram {
         numbersOfItemsInClasses1.add(v1c4);
         numbersOfItemsInClasses1.add(v1c5);
 
-        numbersOfItemsInClasses1.add(v2c1);
-        numbersOfItemsInClasses1.add(v2c2);
-        numbersOfItemsInClasses1.add(v2c3);
-        numbersOfItemsInClasses1.add(v2c4);
-        numbersOfItemsInClasses1.add(v2c5);
+        numbersOfItemsInClasses2.add(v2c1);
+        numbersOfItemsInClasses2.add(v2c2);
+        numbersOfItemsInClasses2.add(v2c3);
+        numbersOfItemsInClasses2.add(v2c4);
+        numbersOfItemsInClasses2.add(v2c5);
         factorForScaling1 = Math.round(396/Collections.max(numbersOfItemsInClasses1));
-
+        factorForScaling2 = Math.round(396/Collections.max(numbersOfItemsInClasses2));
     }
     public void drawHistogram(Graphics g){
         g.setColor(color);
@@ -82,27 +82,29 @@ public class Histogram {
         g.fillRect(sizeOfDrawnClasses*2,396-factorForScaling1 *v1c3, sizeOfDrawnClasses,factorForScaling1 *v1c3);
         g.fillRect(sizeOfDrawnClasses*3,396-factorForScaling1 *v1c4, sizeOfDrawnClasses,factorForScaling1 *v1c4);
         g.fillRect(sizeOfDrawnClasses*4,396-factorForScaling1 *v1c5, sizeOfDrawnClasses,factorForScaling1 *v1c5);
+
         Random randomColor = new Random();
         float r = randomColor.nextFloat();
         float h = randomColor.nextFloat();
         float b = randomColor.nextFloat();
-        Color randomColorforPlot = new Color(r, h, b);
-        g.setColor(randomColorforPlot);
-        g.fillRect(sizeOfDrawnClasses*5,396-factorForScaling1 *v2c1, sizeOfDrawnClasses,factorForScaling1 *v2c1);
-        g.fillRect(sizeOfDrawnClasses*6,396-factorForScaling1 *v2c2, sizeOfDrawnClasses,factorForScaling1 *v2c2);
-        g.fillRect(sizeOfDrawnClasses*7,396-factorForScaling1 *v2c3, sizeOfDrawnClasses,factorForScaling1 *v2c3);
-        g.fillRect(sizeOfDrawnClasses*8,396-factorForScaling1 *v2c4, sizeOfDrawnClasses,factorForScaling1 *v2c4);
-        g.fillRect(sizeOfDrawnClasses*9,396-factorForScaling1 *v2c5, sizeOfDrawnClasses,factorForScaling1 *v2c5);
+        Color randomColorForPlot = new Color(r, h, b);
+
+        g.setColor(randomColorForPlot);
+        g.fillRect(sizeOfDrawnClasses*5,396-factorForScaling2 *v2c1, sizeOfDrawnClasses,factorForScaling2 *v2c1);
+        g.fillRect(sizeOfDrawnClasses*6,396-factorForScaling2 *v2c2, sizeOfDrawnClasses,factorForScaling2 *v2c2);
+        g.fillRect(sizeOfDrawnClasses*7,396-factorForScaling2 *v2c3, sizeOfDrawnClasses,factorForScaling2 *v2c3);
+        g.fillRect(sizeOfDrawnClasses*8,396-factorForScaling2 *v2c4, sizeOfDrawnClasses,factorForScaling2 *v2c4);
+        g.fillRect(sizeOfDrawnClasses*9,396-factorForScaling2 *v2c5, sizeOfDrawnClasses,factorForScaling2 *v2c5);
         g.setColor(Color.BLACK);
         g.drawRect(0,396-factorForScaling1* v1c1, sizeOfDrawnClasses,factorForScaling1 *v1c1);
         g.drawRect(sizeOfDrawnClasses,396-factorForScaling1 *v1c2, sizeOfDrawnClasses,factorForScaling1 *v1c2);
         g.drawRect(sizeOfDrawnClasses*2,396-factorForScaling1 *v1c3, sizeOfDrawnClasses,factorForScaling1 *v1c3);
         g.drawRect(sizeOfDrawnClasses*3,396-factorForScaling1 *v1c4, sizeOfDrawnClasses,factorForScaling1 *v1c4);
         g.drawRect(sizeOfDrawnClasses*4,396-factorForScaling1 *v1c5, sizeOfDrawnClasses,factorForScaling1 *v1c5);
-        g.drawRect(sizeOfDrawnClasses*5,396-factorForScaling1 *v2c1, sizeOfDrawnClasses,factorForScaling1 *v2c1);
-        g.drawRect(sizeOfDrawnClasses*6,396-factorForScaling1 *v2c2, sizeOfDrawnClasses,factorForScaling1 *v2c2);
-        g.drawRect(sizeOfDrawnClasses*7,396-factorForScaling1 *v2c3, sizeOfDrawnClasses,factorForScaling1 *v2c3);
-        g.drawRect(sizeOfDrawnClasses*8,396-factorForScaling1 *v2c4, sizeOfDrawnClasses,factorForScaling1 *v2c4);
-        g.drawRect(sizeOfDrawnClasses*9,396-factorForScaling1 *v2c5, sizeOfDrawnClasses,factorForScaling1 *v2c5);
+        g.drawRect(sizeOfDrawnClasses*5,396-factorForScaling2 *v2c1, sizeOfDrawnClasses,factorForScaling2 *v2c1);
+        g.drawRect(sizeOfDrawnClasses*6,396-factorForScaling2 *v2c2, sizeOfDrawnClasses,factorForScaling2 *v2c2);
+        g.drawRect(sizeOfDrawnClasses*7,396-factorForScaling2 *v2c3, sizeOfDrawnClasses,factorForScaling2 *v2c3);
+        g.drawRect(sizeOfDrawnClasses*8,396-factorForScaling2 *v2c4, sizeOfDrawnClasses,factorForScaling2 *v2c4);
+        g.drawRect(sizeOfDrawnClasses*9,396-factorForScaling2 *v2c5, sizeOfDrawnClasses,factorForScaling2 *v2c5);
     }
 }
