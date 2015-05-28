@@ -1,34 +1,35 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Matthias on 19.05.2015.
  */
 public class DrawingOnPanel2 extends JPanel {
-    List<Histogram> histograms = new ArrayList<Histogram>();
+    CreateHistograms histograms;
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Histogram histogram : histograms) {
-            histogram.drawHistogram(g);
+        if (histograms != null) {
+            histograms.drawHistogram(g);
         }
 
     }
 
-    public void addHistogram(Histogram histogram) {
-        histograms.add(histogram);
+    public void addHistogram(CreateHistograms histogram) {
+        histograms = histogram;
         repaint();
     }
     public void clearPanel2(){
         removeAll();
 
     }
+    public void updatePanel(){
+        repaint();
+    }
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(1900, 400);
+        return new Dimension(900, 400);
     }
 
 }

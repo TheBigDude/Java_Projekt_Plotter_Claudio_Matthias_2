@@ -1,7 +1,6 @@
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.awt.*;
-import java.util.Random;
 
 /**
  * Created by Matthias on 19.05.2015.
@@ -83,13 +82,9 @@ public class Histogram {
         g.fillRect(sizeOfDrawnClasses*3,396-factorForScaling1 *v1c4, sizeOfDrawnClasses,factorForScaling1 *v1c4);
         g.fillRect(sizeOfDrawnClasses*4,396-factorForScaling1 *v1c5, sizeOfDrawnClasses,factorForScaling1 *v1c5);
 
-        Random randomColor = new Random();
-        float r = randomColor.nextFloat();
-        float h = randomColor.nextFloat();
-        float b = randomColor.nextFloat();
-        Color randomColorForPlot = new Color(r, h, b);
 
-        g.setColor(randomColorForPlot);
+
+
         g.fillRect(sizeOfDrawnClasses*5,396-factorForScaling2 *v2c1, sizeOfDrawnClasses,factorForScaling2 *v2c1);
         g.fillRect(sizeOfDrawnClasses*6,396-factorForScaling2 *v2c2, sizeOfDrawnClasses,factorForScaling2 *v2c2);
         g.fillRect(sizeOfDrawnClasses*7,396-factorForScaling2 *v2c3, sizeOfDrawnClasses,factorForScaling2 *v2c3);

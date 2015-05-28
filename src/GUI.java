@@ -1,4 +1,9 @@
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 /**
@@ -14,29 +19,35 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void initComponents() {
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        jColorButton = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jSizeSlider = new javax.swing.JSlider(Min_Size,Max_Size,Size_INIT);
-        jLabel1 = new javax.swing.JLabel();
-        jColorChooser1 = new javax.swing.JColorChooser();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
 
+        jColorButton = new JButton();
+        jColorButton2 = new JButton();
+        jColorButton3 = new JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
+        jLabel1 = new JLabel();
+        jLabel2 = new JLabel();
+        jLabel3 = new JLabel();
+
+        jRadioButton1 = new JRadioButton();
+        jRadioButton2 = new JRadioButton();
+        jRadioButton3 = new JRadioButton();
+        jRadioButton4 = new JRadioButton();
+        buttonGroup1 = new ButtonGroup();
+        buttonGroup2 = new ButtonGroup();
+
+        jMenuBar1 = new JMenuBar();
+        jMenu1 = new JMenu();
+        jMenuItem1 = new JMenuItem();
+        jMenuItem3 = new JMenuItem();
+        jSeparator1 = new JSeparator();
+
+        jColorChooser1 = new JColorChooser();
+        jCheckBox1 = new JCheckBox();
+        jSizeSlider = new JSlider(Min_Size,Max_Size,Size_INIT);
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new Color(255, 255, 255));
+        setPreferredSize(new Dimension(1920, 1080));
 
         panel1.setBackground(new java.awt.Color(255, 255, 255));
         panel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -45,117 +56,150 @@ public class GUI extends javax.swing.JFrame {
         panel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 898, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 664, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel2.setBackground(new java.awt.Color(255, 255, 255));
+        panel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 378, Short.MAX_VALUE)
+                        .addGap(0, 312, Short.MAX_VALUE)
+        );
+        panel3.setBackground(new java.awt.Color(255, 255, 255));
+        panel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(panel3);
+        panel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jCheckBox1.setText("mit Linie Verbinden");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jCheckBox1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);
             }
         });
 
 
-        jColorButton.setText("Farbe Anwenden");
-        jColorButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jColorButton.setText("Scatterplot faerben");
+        jColorButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jColorButtonMouseClicked(evt);
             }
         });
-
-        jSizeSlider.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jColorButton2.setText("Histogram 1 faerben");
+        jColorButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jColorButton2MouseClicked(evt);
+            }
+        });
+        jColorButton3.setText("Histogram 2 faerben");
+        jColorButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jColorButton3MouseClicked(evt);
+            }
+        });
+        jSizeSlider.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 jSizeSliderMouseClicked(evt);
             }
         });
-        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jRadioButton1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 jRadioButton1MouseClicked(evt);
             }
         });
-        jRadioButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jRadioButton2.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 jRadioButton2MouseClicked(evt);
             }
         });
-        jRadioButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jRadioButton3.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 jRadioButton3MouseClicked(evt);
             }
         });
-        jRadioButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jRadioButton4.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
                 jRadioButton4MouseClicked(evt);
             }
         });
+
         jLabel1.setText("Grösse der Punkte");
         jLabel2.setText("X - Achse");
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Variable 1");
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Variable 2");
         jLabel3.setText("Y - Achse");
-        buttonGroup2.add(jRadioButton3);
+
+        jRadioButton1.setText("Variable 1");
+        jRadioButton2.setText("Variable 2");
         jRadioButton3.setText("Variable 1");
-        buttonGroup2.add(jRadioButton4);
         jRadioButton4.setText("Variable 2");
-        jMenu1.setText("Datei");
-        jMenuItem1.setText("Neue Datei");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-        jMenuItem3.setText("Beenden");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-        jMenuBar1.add(jMenu1);
+
         jRadioButton1.setSelected(true);
         jRadioButton2.setSelected(false);
         jRadioButton3.setSelected(false);
         jRadioButton4.setSelected(true);
 
+        buttonGroup1.add(jRadioButton2);
+        buttonGroup1.add(jRadioButton1);
+        buttonGroup2.add(jRadioButton3);
+        buttonGroup2.add(jRadioButton4);
+
+        jMenu1.setText("Datei");
+        jMenuItem1.setText("Neue Datei");
+        jMenuItem1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+        jMenuItem3.setText("Beenden");
+        jMenuItem3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+        jMenuBar1.add(jMenu1);
         setJMenuBar(jMenuBar1);
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+
+
+
+
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(panel2, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(panel1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                                .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                                         .addComponent(jCheckBox1)
                                                                         .addGap(29, 29, 29))
-                                                                .addComponent(jSizeSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jSizeSlider, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jSeparator1, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel1))
                                                         .addComponent(jLabel2)
                                                         .addComponent(jRadioButton1)
@@ -163,45 +207,62 @@ public class GUI extends javax.swing.JFrame {
                                                         .addComponent(jLabel3)
                                                         .addComponent(jRadioButton3)
                                                         .addComponent(jRadioButton4))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jColorButton)
-                                                .addGap(233, 233, 233))))
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jColorButton, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(54, 54, 54)
+                                                                .addComponent(jColorButton2, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(52, 52, 52)
+                                                                .addComponent(jColorButton3, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jColorChooser1, GroupLayout.PREFERRED_SIZE, 676, GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 9, Short.MAX_VALUE))
+                                        .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButton1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jRadioButton2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel3)
-                                                .addGap(4, 4, 4)
-                                                .addComponent(jRadioButton3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButton4)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jCheckBox1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel1)
-                                                .addGap(2, 2, 2)
-                                                .addComponent(jSizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jColorButton))
-                                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addContainerGap()
+                                                                .addComponent(jLabel2)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jRadioButton1)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jRadioButton2)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jLabel3)
+                                                                .addGap(4, 4, 4)
+                                                                .addComponent(jRadioButton3)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jRadioButton4)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jCheckBox1)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jLabel1)
+                                                                .addGap(2, 2, 2)
+                                                                .addComponent(jSizeSlider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jColorChooser1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                .addGap(105, 105, 105)
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jColorButton, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jColorButton2, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jColorButton3, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
+
         pack();
     }
 
@@ -240,7 +301,7 @@ public class GUI extends javax.swing.JFrame {
             xIsVariable2 = false;
         }
         panel1.clearPanel();
-        drawOnPanel();
+        drawOnPanels();
     }
     private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {
         if (jRadioButton2.isSelected()){xIsVariable2 = true; xIsVariable1= false;}
@@ -249,7 +310,7 @@ public class GUI extends javax.swing.JFrame {
             xIsVariable1 = false;
         }
         panel1.clearPanel();
-        drawOnPanel();
+        drawOnPanels();
     }
     private void jRadioButton3MouseClicked(java.awt.event.MouseEvent evt) {
         if(jRadioButton3.isSelected()){yIsVariable1 = true; yIsVariable2 = false;}
@@ -258,7 +319,7 @@ public class GUI extends javax.swing.JFrame {
             yIsVariable2= false;
         }
         panel1.clearPanel();
-        drawOnPanel();
+        drawOnPanels();
     }
     private void jRadioButton4MouseClicked(java.awt.event.MouseEvent evt) {
         if(jRadioButton4.isSelected()){yIsVariable2 = true;yIsVariable1 = false;}
@@ -267,23 +328,31 @@ public class GUI extends javax.swing.JFrame {
              yIsVariable1= false;
         }
         panel1.clearPanel();
-        drawOnPanel();
+        drawOnPanels();
     }
     private void jColorButtonMouseClicked(java.awt.event.ActionEvent evt) {
        for(int cnt=0;cnt < allCircleObjects.size();cnt++) {
         allCircleObjects.get(cnt).changeColor(jColorChooser1.getColor());
         panel1.updatePanel();
        }
-
-
-
-
+    }
+    private void jColorButton2MouseClicked(java.awt.event.ActionEvent evt) {
+        histogramObject1.getCreatedHistograms().changeColor(jColorChooser1.getColor());
+        panel2.updatePanel();
+    }
+    private void jColorButton3MouseClicked(java.awt.event.ActionEvent evt) {
+        histogramObject2.getCreatedHistograms().changeColor(jColorChooser1.getColor());
+        panel3.updatePanel();
     }
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
         ActionNewFile File1 = NewAction();
         ProcessVariables allCircles = processVariables(File1, panel1,width,color);
         allCircleObjects = allCircles.getAllCircles();
-        drawOnPanel();
+        histogramObject1 = processVariablesForHistograms(File1.getVariable1().getValues(), panel2);
+        histogramObject2 = processVariablesForHistograms(File1.getVariable2().getValues(), panel3);
+
+        drawOnPanels();
+
 
         //hier noch Histogram
         jRadioButton1.setText(File1.getVariable1().getName());
@@ -307,8 +376,12 @@ public class GUI extends javax.swing.JFrame {
         ProcessVariables processedVariables = new ProcessVariables(File1, panel1,width,color);
         return processedVariables;
     }
+    private ProcessVariablesForHistograms processVariablesForHistograms(ArrayList<Float> values, DrawingOnPanel2 panel){
+        ProcessVariablesForHistograms processedVariablesHistograms = new ProcessVariablesForHistograms(values, panel);
+        return processedVariablesHistograms;
+    }
 
-    public void drawOnPanel(){
+    public void drawOnPanels(){
         if (xIsVariable1 && yIsVariable2){
             panel1.addCircles(allCircleObjects.get(0));
         }
@@ -321,6 +394,8 @@ public class GUI extends javax.swing.JFrame {
         if(xIsVariable2 && yIsVariable2){
             panel1.addCircles(allCircleObjects.get(3));
         }
+        panel2.addHistogram(histogramObject1.getCreatedHistograms());
+        panel3.addHistogram(histogramObject2.getCreatedHistograms());
     }
 
 
@@ -338,7 +413,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private DrawingOnPanel1 panel1 = new DrawingOnPanel1();
-    private DrawingOnPanel2 jPanel2 = new DrawingOnPanel2();
+    private DrawingOnPanel2 panel2 = new DrawingOnPanel2();
+    private DrawingOnPanel2 panel3 = new DrawingOnPanel2();
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -346,6 +422,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSizeSlider;
     private javax.swing.JButton jColorButton;
+    private javax.swing.JButton jColorButton2;
+    private javax.swing.JButton jColorButton3;
     static final int Min_Size = 1;
     static final int Max_Size = 40;
     static final int Size_INIT = 10;
@@ -354,6 +432,8 @@ public class GUI extends javax.swing.JFrame {
     boolean yIsVariable1 = false;
     boolean yIsVariable2 = true;
     ArrayList<CreateCircles> allCircleObjects;
+    ProcessVariablesForHistograms histogramObject1;
+    ProcessVariablesForHistograms histogramObject2;
     int width = 5;
 
 
