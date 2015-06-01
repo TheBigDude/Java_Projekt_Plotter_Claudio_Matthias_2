@@ -6,10 +6,11 @@ import javax.swing.*;
 public class ActionNewFile {
     Variable variable1;
     Variable variable2;
+    String filename;
     public ActionNewFile() {
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(null);
-        String filename = fc.getSelectedFile().getName();
+        filename = fc.getSelectedFile().getName();
         FileScanner File1 = ScannFile(filename);
         variable1 = File1.getVariable1();
         variable2 = File1.getVariable2();
@@ -23,5 +24,8 @@ public class ActionNewFile {
     }
     public Variable getVariable2(){
         return variable2;
+    }
+    public String getFilename(){
+        return filename;
     }
 }
