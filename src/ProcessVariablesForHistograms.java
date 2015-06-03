@@ -17,6 +17,7 @@ public class ProcessVariablesForHistograms {
         float min = Collections.min(values);
         int numberOfBins = (int) Math.sqrt(values.size());
         float binWidth = (max-min)/numberOfBins;
+
         int[] counts = new int[numberOfBins];
         for(int cnt = 0; cnt<counts.length; cnt++){
             counts[cnt] = 0;
@@ -32,6 +33,7 @@ public class ProcessVariablesForHistograms {
             }
         }
         int imageWidth = (panel.getWidth()) - 40;
+
         int imageHeight = panel.getHeight();
         int maxCounts = counts[0];
         for(int cnt = 0; cnt < counts.length; cnt++){
@@ -40,11 +42,15 @@ public class ProcessVariablesForHistograms {
                 maxCounts = tmp;
             }
         }
+
         imageWidthOfBin = imageWidth/numberOfBins;
+
         for(int cnt = 0; cnt < counts.length; cnt++){
-            float heightOfBin = imageHeight/maxCounts*counts[cnt];
+            float heightOfBin = (float) imageHeight/maxCounts*counts[cnt];
+
             coordsY.add(heightOfBin);
         }
+
         createdHistograms = CreateHistograms(coordsY,imageWidthOfBin,imageHeight);
     }
     private CreateHistograms CreateHistograms(ArrayList<Float> valuesY, int width, int height){
