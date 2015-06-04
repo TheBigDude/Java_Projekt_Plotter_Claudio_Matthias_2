@@ -23,6 +23,7 @@ public class CreateHistograms {
         this.imageHeight = imageHeight;
     }
     public void drawHistogram(Graphics g){
+
         for (int cnt=0; cnt < valuesY.size(); cnt++){
             g.setColor(color1);
             g.fillRect(20 + cnt * imageWidthOfBin, imageHeight - Math.round(valuesY.get(cnt)), imageWidthOfBin, Math.round(valuesY.get(cnt)));

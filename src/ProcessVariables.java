@@ -15,15 +15,15 @@ public class ProcessVariables {
     Color color;
 
 
-    public ProcessVariables(ActionNewFile File1, DrawingOnPanel1 panel1, int width, Color color) {
+    public ProcessVariables(ActionNewFile File1, DrawingOnPanel1 scatterPlotPanel, int width, Color color) {
         this.width=width;
         this.color=color;
         ArrayList<Float> valuesX;
         ArrayList<Float> valuesY;
         valuesX = File1.getVariable1().getValues();
         valuesY = File1.getVariable2().getValues();
-        int panelWidth = panel1.getWidth();
-        int panelHeight = panel1.getHeight();
+        int panelWidth = scatterPlotPanel.getWidth();
+        int panelHeight = scatterPlotPanel.getHeight();
         int border = 50;
         int widthOfDrawing = panelWidth - 2 * border;
         int heightOfDrawing = panelHeight - 2 * border;

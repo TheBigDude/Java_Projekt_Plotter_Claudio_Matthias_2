@@ -90,14 +90,6 @@ public class ScatterPlotButtons  {
         return jRadioButton4;
     }
 
-    public ButtonGroup getButtonGroup1() {
-        return buttonGroup1;
-    }
-
-    public ButtonGroup getButtonGroup2() {
-        return buttonGroup2;
-    }
-
     public JCheckBox getLineButton() {
         return lineButton;
     }
