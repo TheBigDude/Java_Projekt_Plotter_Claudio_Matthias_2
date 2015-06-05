@@ -1,6 +1,6 @@
 package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels;
 
-import VariableProcessing.CreateCircles;
+import VariableProcessing.CreationOfCircles;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +9,7 @@ import java.awt.*;
  * Created by Matthias on 17.05.2015.
  */
 public class ScatterPlotPanel extends JPanel {
-   CreateCircles circles;
-
-
+   CreationOfCircles circles;
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -25,7 +23,7 @@ public class ScatterPlotPanel extends JPanel {
         setPreferredSize(new java.awt.Dimension(960, 600));
     }
 
-    public void addCircles(CreateCircles circle) {
+    public void addCircles(CreationOfCircles circle) {
         circles=circle;
         repaint();
     }
@@ -36,5 +34,4 @@ public class ScatterPlotPanel extends JPanel {
         removeAll();
         circles = null;
     }
-
 }

@@ -5,9 +5,9 @@ import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel
 import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.HistogramPanel;
 import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ScatterPlotPanel;
 import VariableProcessing.ActionNewFile;
-import VariableProcessing.CreateCircles;
-import VariableProcessing.ProcessVariables;
-import VariableProcessing.ProcessVariablesForHistograms;
+import VariableProcessing.CreationOfCircles;
+import VariableProcessing.ProcessingOfVariablesForHistograms;
+import VariableProcessing.ProcessingOfVariablesForScatterPlot;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -27,9 +27,9 @@ public class EventActions {
     boolean yIsVariable1 = false;
     boolean yIsVariable2 = true;
     boolean linesActivated;
-    ArrayList<CreateCircles> allCircleObjects;
-    ProcessVariablesForHistograms histogramObject1;
-    ProcessVariablesForHistograms histogramObject2;
+    ArrayList<CreationOfCircles> allCircleObjects;
+    ProcessingOfVariablesForHistograms histogramObject1;
+    ProcessingOfVariablesForHistograms histogramObject2;
     ActionNewFile File1;
     int width = 5;
     Color histogramColor1 = Color.GREEN;
@@ -69,7 +69,6 @@ public class EventActions {
         }
         scatterPlotButtons.getSizeSlider().setValue(width);
         scatterPlotPanel.updatePanel();
-
     }
     public void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {
         if (scatterPlotButtons.getRadioButton1().isSelected()){xIsVariable1 = true; xIsVariable2 = false;}
@@ -127,7 +126,7 @@ public class EventActions {
     }
     public void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
         File1 = NewAction();
-        ProcessVariables allCircles = processVariables(File1, scatterPlotPanel,width,color);
+        ProcessingOfVariablesForScatterPlot allCircles = processVariables(File1, scatterPlotPanel,width,color);
         allCircleObjects = allCircles.getAllCircles();
         histogramObject1 = processVariablesForHistograms(File1.getVariable1().getValues(), histogramPanel1,histogramColor1);
         histogramObject2 = processVariablesForHistograms(File1.getVariable2().getValues(), histogramPanel2,histogramColor2);
@@ -142,14 +141,13 @@ public class EventActions {
         scatterPlotButtons.getRadioButton3().setText(File1.getVariable1().getName());
         scatterPlotButtons.getRadioButton4().setText(File1.getVariable2().getName());
         scatterPlotButtons.getRadioButton4().setSelected(true);
-        mainFrame.getFrame().setTitle(File1.getFilename());
+        mainFrame.getFrame().setTitle(File1.getFileName());
     }
     public void formComponentResized(java.awt.event.ComponentEvent evt) {
 
-
         if(File1!= null){
 
-            ProcessVariables allCircles = processVariables(File1, scatterPlotPanel,width,color);
+            ProcessingOfVariablesForScatterPlot allCircles = processVariables(File1, scatterPlotPanel,width,color);
             allCircleObjects = allCircles.getAllCircles();
             histogramObject1 = processVariablesForHistograms(File1.getVariable1().getValues(), histogramPanel1,histogramColor1);
             histogramObject2 = processVariablesForHistograms(File1.getVariable2().getValues(), histogramPanel2, histogramColor2);
@@ -162,7 +160,6 @@ public class EventActions {
             }
             scatterPlotPanel.updatePanel();
         }
-
     }
     public void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
@@ -187,13 +184,12 @@ public class EventActions {
         ActionNewFile NewAction = new ActionNewFile();
         return NewAction;
     }
-    private ProcessVariables processVariables(ActionNewFile File1, ScatterPlotPanel scatterPlotPanel, int width, Color color){
-        ProcessVariables processedVariables = new ProcessVariables(File1, scatterPlotPanel,width,color);
+    private ProcessingOfVariablesForScatterPlot processVariables(ActionNewFile File1, ScatterPlotPanel scatterPlotPanel, int width, Color color){
+        ProcessingOfVariablesForScatterPlot processedVariables = new ProcessingOfVariablesForScatterPlot(File1, scatterPlotPanel,width,color);
         return processedVariables;
     }
-    private ProcessVariablesForHistograms processVariablesForHistograms(ArrayList<Float> values, HistogramPanel panel,Color color){
-        ProcessVariablesForHistograms processedVariablesHistograms = new ProcessVariablesForHistograms(values, panel,color);
+    private ProcessingOfVariablesForHistograms processVariablesForHistograms(ArrayList<Float> values, HistogramPanel panel,Color color){
+        ProcessingOfVariablesForHistograms processedVariablesHistograms = new ProcessingOfVariablesForHistograms(values, panel,color);
         return processedVariablesHistograms;
     }
-
 }

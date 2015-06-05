@@ -17,7 +17,6 @@ public class BottomPanel extends JPanel {
         bottomPanel.setLayout(topLayout);
         bottomPanel.add(panel2);
         bottomPanel.add(panel3);
-
     }
     public JPanel getBottomPanel(){
         return bottomPanel;

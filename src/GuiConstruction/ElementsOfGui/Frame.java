@@ -31,7 +31,6 @@ public class Frame {
         mainFrame.setMaximumSize(new java.awt.Dimension(1920, 1080));
         mainFrame.setMinimumSize(new java.awt.Dimension(150,150));
         mainFrame.setJMenuBar(jMenuBar1);
-
     }
     public JFrame getFrame(){
         return mainFrame;

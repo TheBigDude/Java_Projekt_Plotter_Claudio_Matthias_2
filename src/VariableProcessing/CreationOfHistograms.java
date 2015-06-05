@@ -6,15 +6,14 @@ import java.util.ArrayList;
 /**
  * Created by Matthias on 28.05.2015.
  */
-public class CreateHistograms {
+public class CreationOfHistograms {
     ArrayList<Float> valuesY;
     int imageWidthOfBin;
     int imageHeight;
     int numberOfBins = 0;
     Color color1;
 
-
-    public CreateHistograms(ArrayList<Float> valuesY, int imageWidthOfBin, int imageHeight,Color color){
+    public CreationOfHistograms(ArrayList<Float> valuesY, int imageWidthOfBin, int imageHeight, Color color){
         color1 = color;
         this.valuesY = valuesY;
         this.imageWidthOfBin = imageWidthOfBin;

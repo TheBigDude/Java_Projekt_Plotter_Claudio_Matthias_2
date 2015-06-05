@@ -1,6 +1,6 @@
 package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels;
 
-import VariableProcessing.CreateHistograms;
+import VariableProcessing.CreationOfHistograms;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,7 @@ import java.awt.*;
  * Created by Matthias on 19.05.2015.
  */
 public class HistogramPanel extends JPanel {
-    CreateHistograms histograms;
+    CreationOfHistograms histograms;
     String name;
     @Override
     protected void paintComponent(Graphics g) {
@@ -26,7 +26,7 @@ public class HistogramPanel extends JPanel {
         setPreferredSize(new java.awt.Dimension(960, 480));
     }
 
-    public void addHistogram(CreateHistograms histogram) {
+    public void addHistogram(CreationOfHistograms histogram) {
         histograms = histogram;
         repaint();
     }

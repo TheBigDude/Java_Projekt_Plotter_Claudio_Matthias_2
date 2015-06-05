@@ -65,7 +65,6 @@ public class ScatterPlotButtons  {
         sizeSlider.setMinimum(0);
         sizeSlider.setMaximum(20);
         sizeSlider.setValue(10);
-
     }
 
     public JLabel getXAxisLabel() {

@@ -26,7 +26,6 @@ public class ColorButtons extends JButton {
         colorButton3.setText("Histogram 2 Faerben");
         colorButton3.setMaximumSize(new java.awt.Dimension(240, 66));
         colorButton3.setPreferredSize(new java.awt.Dimension(240, 66));
-
     }
 
     public JButton getColorButton(){
@@ -38,5 +37,4 @@ public class ColorButtons extends JButton {
     public JButton getColorButton3(){
         return colorButton3;
     }
-
 }

@@ -80,7 +80,6 @@ public class EventListeners {
                 actions.formComponentResized(evt);
             }
         });
-
     }
 
     public EventListeners(ScatterPlotPanel scatterPlotPanel, HistogramPanel histogramPanel1, HistogramPanel histogramPanel2, ScatterPlotButtons scatterPlotButtons, ColorButtons colorButtons, ColorChooser colorChooser, java.awt.Frame mainFrame) {
@@ -91,5 +90,4 @@ public class EventListeners {
         EventActions actions = new EventActions(scatterPlotPanel, histogramPanel1, histogramPanel2, scatterPlotButtons, colorChooser, mainFrame);
         return actions;
     }
-
 }

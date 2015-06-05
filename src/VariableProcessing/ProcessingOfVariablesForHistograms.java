@@ -9,13 +9,13 @@ import java.util.Collections;
 /**
  * Created by Matthias on 28.05.2015.
  */
-public class ProcessVariablesForHistograms {
+public class ProcessingOfVariablesForHistograms {
     ArrayList<Float> values= new ArrayList<Float>();
     HistogramPanel panel;
     ArrayList<Float> coordsY= new ArrayList<Float>();   
     int imageWidthOfBin;
-    CreateHistograms createdHistograms;
-    public ProcessVariablesForHistograms(ArrayList<Float> values, HistogramPanel panel,Color color){
+    CreationOfHistograms createdHistograms;
+    public ProcessingOfVariablesForHistograms(ArrayList<Float> values, HistogramPanel panel, Color color){
         this.values = values;
         this.panel = panel;
         float max = Collections.max(values) ;
@@ -55,14 +55,13 @@ public class ProcessVariablesForHistograms {
 
             coordsY.add(heightOfBin);
         }
-
         createdHistograms = CreateHistograms(coordsY,imageWidthOfBin,imageHeight,color);
     }
-    private CreateHistograms CreateHistograms(ArrayList<Float> valuesY, int width, int height,Color color){
-        CreateHistograms createdHistograms = new CreateHistograms(valuesY,width, height,color);
+    private CreationOfHistograms CreateHistograms(ArrayList<Float> valuesY, int width, int height,Color color){
+        CreationOfHistograms createdHistograms = new CreationOfHistograms(valuesY,width, height,color);
         return createdHistograms;
     }
-    public CreateHistograms getCreatedHistograms(){
+    public CreationOfHistograms getCreatedHistograms(){
         return createdHistograms;
     }
 }

@@ -6,13 +6,13 @@ import java.util.ArrayList;
 /**
  * Created by Matthias on 17.05.2015.
  */
-public class CreateCircles {
+public class CreationOfCircles {
     ArrayList<Float> coordinatesX = new ArrayList<Float>();
     ArrayList<Float> coordinatesY = new ArrayList<Float>();
     boolean linesActivated;
     int width;
     Color color;
-    public CreateCircles(ArrayList<Float> coordinatesX, ArrayList<Float> coordinatesY, int width, Color color) {
+    public CreationOfCircles(ArrayList<Float> coordinatesX, ArrayList<Float> coordinatesY, int width, Color color) {
         this.coordinatesX = coordinatesX;
         this.coordinatesY = coordinatesY;
         this.width = width;
@@ -30,7 +30,6 @@ public class CreateCircles {
             }
         }
     }
-
 
     public void changeColor(Color color){
         this.color = color;

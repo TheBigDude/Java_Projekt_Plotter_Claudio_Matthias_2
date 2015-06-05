@@ -2,7 +2,6 @@ package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel;
 
 import javax.swing.*;
 
-
 /**
  * Created by Matthias on 03.06.2015.
  */

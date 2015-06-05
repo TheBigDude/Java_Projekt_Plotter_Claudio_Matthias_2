@@ -8,14 +8,10 @@ public class Variable {
     String variableName;
     ArrayList values;
 
-
     public Variable(String variable, ArrayList<Float> values){
         variableName = variable;
         this.values = values;
     }
-
-
-
 
     public String getName(){
         return variableName;
@@ -23,6 +19,5 @@ public class Variable {
 
     public ArrayList<Float> getValues(){
         return values;
-
     }
 }

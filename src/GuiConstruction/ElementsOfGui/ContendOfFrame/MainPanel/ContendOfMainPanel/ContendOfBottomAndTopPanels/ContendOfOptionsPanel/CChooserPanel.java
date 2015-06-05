@@ -18,5 +18,4 @@ public class CChooserPanel  extends JPanel {
     public JPanel getCChooserPanel(){
         return cChooserPanel;
     }
-
 }

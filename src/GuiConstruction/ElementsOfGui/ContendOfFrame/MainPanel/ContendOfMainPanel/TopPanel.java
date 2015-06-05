@@ -17,7 +17,6 @@ public class TopPanel extends JPanel {
         topPanel.setLayout(topLayout);
         topPanel.add(scatterPlotPanel);
         topPanel.add(optionsPanel);
-
     }
     public JPanel getTopPanel(){
         return topPanel;
