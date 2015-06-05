@@ -1,7 +1,5 @@
 package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel;
 
-import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ComponentsInsidePanels.ScatterPlotButtons;
-
 import javax.swing.*;
 import java.awt.*;
 
