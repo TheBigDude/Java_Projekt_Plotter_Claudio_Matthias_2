@@ -25,9 +25,7 @@ public class CreateCircles {
             g.fillOval(Math.round(coordinatesX.get(cnt)), Math.round(coordinatesY.get(cnt)), width, width);
             if (linesActivated) {
                 if (cnt <= coordinatesX.size() - 2) {
-                    g.drawLine(Math.round(coordinatesX.get(cnt)), Math.round(coordinatesY.get(cnt)), Math.round(coordinatesX.get(cnt + 1)), Math.round(coordinatesY.get(cnt + 1)));
-                } else {
-                    g.drawLine(Math.round(coordinatesX.get(0)), Math.round(coordinatesY.get(0)), Math.round(coordinatesX.get(cnt)), Math.round(coordinatesY.get(cnt)));
+                    g.drawLine((int) (Math.round(coordinatesX.get(cnt)) + 0.5*width), (int) Math.round(coordinatesY.get(cnt) + 0.5*width), (int) Math.round(coordinatesX.get(cnt + 1) + 0.5*width), (int) Math.round(coordinatesY.get(cnt + 1) + 0.5*width));
                 }
             }
         }
