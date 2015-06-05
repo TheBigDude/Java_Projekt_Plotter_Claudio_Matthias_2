@@ -42,28 +42,16 @@ public class ProcessingOfVariablesForScatterPlot {
             float y = valuesY.get(cnt);
             float xBer;
             float yBer;
-            if (min < 0) {
-                xBer = ((widthOfDrawing / Math.abs(min) * x + widthOfDrawing) * Math.abs(min) / (range) + BORDER);
-                coordinatesV1X.add(xBer);
-                xBer = panelHeight-((heightOfDrawing / Math.abs(min) * x + heightOfDrawing) * Math.abs(min) / (range) + BORDER);
-                coordinatesV1Y.add(xBer);
-            } else {
-                xBer = ((widthOfDrawing / Math.abs(min) * x - widthOfDrawing) * Math.abs(min) / (range) + BORDER);
-                coordinatesV1X.add(xBer);
-                xBer = panelHeight-((heightOfDrawing / Math.abs(min) * x - heightOfDrawing) * Math.abs(min) / (range) + BORDER);
-                coordinatesV1Y.add(xBer);
-            }
-            if (minY < 0) {
-                yBer = panelHeight-((heightOfDrawing / Math.abs(minY) * y + heightOfDrawing) * Math.abs(minY) / (rangeY) + BORDER);
-                coordinatesV2Y.add(yBer);
-                yBer = ((widthOfDrawing / Math.abs(minY) * y + widthOfDrawing) * Math.abs(minY) / (rangeY) + BORDER);
-                coordinatesV2X.add(yBer);
-            } else {
-                yBer = panelHeight-((heightOfDrawing / Math.abs(minY) * y - heightOfDrawing) * Math.abs(minY) / (rangeY) + BORDER);
-                coordinatesV2Y.add(yBer);
-                yBer =((widthOfDrawing / Math.abs(minY) * y - widthOfDrawing) * Math.abs(minY) / (rangeY) + BORDER);
-                coordinatesV2X.add(yBer);
-            }
+
+            xBer = widthOfDrawing * (x - min) / range + BORDER;
+            coordinatesV1X.add(xBer);
+            xBer = panelHeight-(heightOfDrawing * (x - min) / range + BORDER);
+            coordinatesV1Y.add(xBer);
+
+            yBer = panelHeight -(heightOfDrawing * (y - minY) / rangeY + BORDER);
+            coordinatesV2Y.add(yBer);
+            yBer = widthOfDrawing * (y - minY) / rangeY + BORDER;
+            coordinatesV2X.add(yBer);
         }
         CreationOfCircles circles1 = makeCircles(coordinatesV1X,coordinatesV2Y,width,color);
         allCircles.add(circles1);
