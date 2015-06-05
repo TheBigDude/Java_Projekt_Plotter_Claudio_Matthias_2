@@ -18,7 +18,6 @@ public class ColorChooser {
 
             if (displayName.equals("HSV")) {
                 jColorChooser.removeChooserPanel(p);
-                System.out.println(true);
             }
             if (displayName.equals("HSL")){
                 jColorChooser.removeChooserPanel(p);
