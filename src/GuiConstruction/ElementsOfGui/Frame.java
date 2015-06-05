@@ -1,3 +1,5 @@
+package GuiConstruction.ElementsOfGui;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,7 +12,7 @@ public class Frame {
     JMenuItem jMenu1;
     JMenuItem jMenuItem1;
     JMenuItem jMenuItem3;
-    Frame(){
+    public Frame(){
         mainFrame = new JFrame();
         jMenuBar1 = new JMenuBar();
         jMenu1 = new JMenu();

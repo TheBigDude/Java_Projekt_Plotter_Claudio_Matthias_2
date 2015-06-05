@@ -1,3 +1,5 @@
+package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel;
+
 import javax.swing.*;
 
 

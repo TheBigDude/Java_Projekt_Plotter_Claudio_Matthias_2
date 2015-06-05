@@ -1,6 +1,7 @@
+package VariableProcessing;
+
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by Matthias on 28.05.2015.
@@ -10,14 +11,11 @@ public class CreateHistograms {
     int imageWidthOfBin;
     int imageHeight;
     int numberOfBins = 0;
+    Color color1;
 
-    Random randomColor = new Random();
-    float r = randomColor.nextFloat();
-    float h = randomColor.nextFloat();
-    float b = randomColor.nextFloat();
-    Color color1 = new Color(r, h, b);
 
-    public CreateHistograms(ArrayList<Float> valuesY, int imageWidthOfBin, int imageHeight){
+    public CreateHistograms(ArrayList<Float> valuesY, int imageWidthOfBin, int imageHeight,Color color){
+        color1 = color;
         this.valuesY = valuesY;
         this.imageWidthOfBin = imageWidthOfBin;
         this.imageHeight = imageHeight;

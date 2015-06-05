@@ -1,3 +1,8 @@
+package VariableProcessing;
+
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.HistogramPanel;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -6,11 +11,11 @@ import java.util.Collections;
  */
 public class ProcessVariablesForHistograms {
     ArrayList<Float> values= new ArrayList<Float>();
-    DrawingOnPanel2 panel;
+    HistogramPanel panel;
     ArrayList<Float> coordsY= new ArrayList<Float>();   
     int imageWidthOfBin;
     CreateHistograms createdHistograms;
-    public ProcessVariablesForHistograms(ArrayList<Float> values, DrawingOnPanel2 panel){
+    public ProcessVariablesForHistograms(ArrayList<Float> values, HistogramPanel panel,Color color){
         this.values = values;
         this.panel = panel;
         float max = Collections.max(values) ;
@@ -51,10 +56,10 @@ public class ProcessVariablesForHistograms {
             coordsY.add(heightOfBin);
         }
 
-        createdHistograms = CreateHistograms(coordsY,imageWidthOfBin,imageHeight);
+        createdHistograms = CreateHistograms(coordsY,imageWidthOfBin,imageHeight,color);
     }
-    private CreateHistograms CreateHistograms(ArrayList<Float> valuesY, int width, int height){
-        CreateHistograms createdHistograms = new CreateHistograms(valuesY,width, height);
+    private CreateHistograms CreateHistograms(ArrayList<Float> valuesY, int width, int height,Color color){
+        CreateHistograms createdHistograms = new CreateHistograms(valuesY,width, height,color);
         return createdHistograms;
     }
     public CreateHistograms getCreatedHistograms(){

@@ -1,3 +1,7 @@
+package VariableProcessing;
+
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ScatterPlotPanel;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +19,7 @@ public class ProcessVariables {
     Color color;
 
 
-    public ProcessVariables(ActionNewFile File1, DrawingOnPanel1 scatterPlotPanel, int width, Color color) {
+    public ProcessVariables(ActionNewFile File1, ScatterPlotPanel scatterPlotPanel, int width, Color color) {
         this.width=width;
         this.color=color;
         ArrayList<Float> valuesX;
@@ -40,12 +44,12 @@ public class ProcessVariables {
             float xBer;
             float yBer;
             if (min < 0) {
-                xBer = panelWidth-((widthOfDrawing / Math.abs(min) * x + widthOfDrawing) * Math.abs(min) / (range) + border);
+                xBer = ((widthOfDrawing / Math.abs(min) * x + widthOfDrawing) * Math.abs(min) / (range) + border);
                 coordinatesV1X.add(xBer);
                 xBer = panelHeight-((heightOfDrawing / Math.abs(min) * x + heightOfDrawing) * Math.abs(min) / (range) + border);
                 coordinatesV1Y.add(xBer);
             } else {
-                xBer = panelWidth-((widthOfDrawing / Math.abs(min) * x - widthOfDrawing) * Math.abs(min) / (range) + border);
+                xBer = ((widthOfDrawing / Math.abs(min) * x - widthOfDrawing) * Math.abs(min) / (range) + border);
                 coordinatesV1X.add(xBer);
                 xBer = panelHeight-((heightOfDrawing / Math.abs(min) * x - heightOfDrawing) * Math.abs(min) / (range) + border);
                 coordinatesV1Y.add(xBer);
@@ -53,14 +57,14 @@ public class ProcessVariables {
             if (minY < 0) {
                 yBer = panelHeight-((heightOfDrawing / Math.abs(minY) * y + heightOfDrawing) * Math.abs(minY) / (rangeY) + border);
                 coordinatesV2Y.add(yBer);
-                yBer = panelWidth-((widthOfDrawing / Math.abs(minY) * y + widthOfDrawing) * Math.abs(minY) / (rangeY) + border);
+                yBer = ((widthOfDrawing / Math.abs(minY) * y + widthOfDrawing) * Math.abs(minY) / (rangeY) + border);
                 coordinatesV2X.add(yBer);
 
 
             } else {
                 yBer = panelHeight-((heightOfDrawing / Math.abs(minY) * y - heightOfDrawing) * Math.abs(minY) / (rangeY) + border);
                 coordinatesV2Y.add(yBer);
-                yBer = panelWidth-((widthOfDrawing / Math.abs(minY) * y - widthOfDrawing) * Math.abs(minY) / (rangeY) + border);
+                yBer =((widthOfDrawing / Math.abs(minY) * y - widthOfDrawing) * Math.abs(minY) / (rangeY) + border);
                 coordinatesV2X.add(yBer);
             }
         }

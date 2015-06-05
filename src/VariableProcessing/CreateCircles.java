@@ -1,10 +1,12 @@
+package VariableProcessing;
+
 import java.awt.*;
 import java.util.ArrayList;
 
 /**
  * Created by Matthias on 17.05.2015.
  */
-class CreateCircles {
+public class CreateCircles {
     ArrayList<Float> coordinatesX = new ArrayList<Float>();
     ArrayList<Float> coordinatesY = new ArrayList<Float>();
     boolean linesActivated;

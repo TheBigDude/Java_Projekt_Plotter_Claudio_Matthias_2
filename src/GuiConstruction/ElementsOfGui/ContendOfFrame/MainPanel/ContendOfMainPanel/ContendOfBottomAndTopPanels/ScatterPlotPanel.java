@@ -1,10 +1,14 @@
+package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels;
+
+import VariableProcessing.CreateCircles;
+
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * Created by Matthias on 17.05.2015.
  */
-public class DrawingOnPanel1 extends JPanel {
+public class ScatterPlotPanel extends JPanel {
    CreateCircles circles;
 
 

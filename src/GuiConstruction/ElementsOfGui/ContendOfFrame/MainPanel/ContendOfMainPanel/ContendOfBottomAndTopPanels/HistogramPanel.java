@@ -1,10 +1,14 @@
+package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels;
+
+import VariableProcessing.CreateHistograms;
+
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * Created by Matthias on 19.05.2015.
  */
-public class DrawingOnPanel2 extends JPanel {
+public class HistogramPanel extends JPanel {
     CreateHistograms histograms;
     String name;
     @Override

@@ -1,3 +1,12 @@
+package EventHandling;
+
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ComponentsInsidePanels.ColorButtons;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ComponentsInsidePanels.ColorChooser;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ComponentsInsidePanels.ScatterPlotButtons;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.HistogramPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ScatterPlotPanel;
+import GuiConstruction.ElementsOfGui.Frame;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -8,8 +17,8 @@ import java.awt.event.MouseEvent;
  */
 public class EventListeners {
 
-    public EventListeners(DrawingOnPanel1 scatterPlotPanel, DrawingOnPanel2 histogramPanel1, DrawingOnPanel2 histogramPanel2, ScatterPlotButtons scatterPlotButtons, ColorButtons colorButtons, ColorChooser colorChooser, Frame mainFrame) {
-        final EventActions actions = setEventActions(scatterPlotPanel, histogramPanel1, histogramPanel2, scatterPlotButtons, colorChooser);
+    public EventListeners(ScatterPlotPanel scatterPlotPanel, HistogramPanel histogramPanel1, HistogramPanel histogramPanel2, ScatterPlotButtons scatterPlotButtons, ColorButtons colorButtons, ColorChooser colorChooser, Frame mainFrame) {
+        final EventActions actions = setEventActions(scatterPlotPanel, histogramPanel1, histogramPanel2, scatterPlotButtons, colorChooser, mainFrame);
 
         scatterPlotButtons.getRadioButton1().addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
@@ -37,8 +46,8 @@ public class EventListeners {
             }
         });
         scatterPlotButtons.getSizeSlider().addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-                actions.sizeSliderMouseClicked(evt);
+            public void mouseReleased(MouseEvent evt) {
+                actions.sizeSliderMouseReleased(evt);
             }
         });
         colorButtons.getColorButton().addActionListener(new ActionListener() {
@@ -73,8 +82,13 @@ public class EventListeners {
         });
 
     }
-    private EventActions setEventActions(DrawingOnPanel1 scatterPlotPanel, DrawingOnPanel2 histogramPanel1, DrawingOnPanel2 histogramPanel2, ScatterPlotButtons scatterPlotButtons, ColorChooser colorChooser) {
-        EventActions actions = new EventActions(scatterPlotPanel, histogramPanel1, histogramPanel2, scatterPlotButtons, colorChooser);
+
+    public EventListeners(ScatterPlotPanel scatterPlotPanel, HistogramPanel histogramPanel1, HistogramPanel histogramPanel2, ScatterPlotButtons scatterPlotButtons, ColorButtons colorButtons, ColorChooser colorChooser, java.awt.Frame mainFrame) {
+
+    }
+
+    private EventActions setEventActions(ScatterPlotPanel scatterPlotPanel, HistogramPanel histogramPanel1, HistogramPanel histogramPanel2, ScatterPlotButtons scatterPlotButtons, ColorChooser colorChooser,Frame mainFrame) {
+        EventActions actions = new EventActions(scatterPlotPanel, histogramPanel1, histogramPanel2, scatterPlotButtons, colorChooser, mainFrame);
         return actions;
     }
 

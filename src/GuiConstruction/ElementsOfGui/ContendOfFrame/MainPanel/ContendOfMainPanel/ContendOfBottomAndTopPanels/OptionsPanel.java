@@ -1,3 +1,5 @@
+package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels;
+
 import javax.swing.*;
 import java.awt.*;
 

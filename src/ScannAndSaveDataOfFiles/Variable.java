@@ -1,4 +1,4 @@
-/**
+package ScannAndSaveDataOfFiles; /**
  * Created by Matthias on 15.05.2015.
  */
 import java.util.ArrayList;

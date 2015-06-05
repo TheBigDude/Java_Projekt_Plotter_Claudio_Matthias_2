@@ -1,3 +1,19 @@
+package GuiConstruction;
+
+import EventHandling.EventListeners;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.BottomPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.CChooserButtonPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.CChooserPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ComponentsInsidePanels.ColorButtons;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ComponentsInsidePanels.ColorChooser;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ComponentsInsidePanels.ScatterPlotButtons;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ScatterPlotOptionsPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.HistogramPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.OptionsPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ScatterPlotPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.TopPanel;
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.MainPanel;
+import GuiConstruction.ElementsOfGui.Frame;
 import javax.swing.*;
 import java.awt.*;
 
@@ -57,11 +73,11 @@ public class GUI {
         MainPanel mainPanel = new MainPanel(topPanel, bottomPanel);
         return mainPanel;
     }
-    private TopPanel makeTopPanel(DrawingOnPanel1 scatterPlotPanel, JPanel optionsPanel){
+    private TopPanel makeTopPanel(ScatterPlotPanel scatterPlotPanel, JPanel optionsPanel){
         TopPanel topPanel = new TopPanel(scatterPlotPanel, optionsPanel);
         return topPanel;
     }
-    private BottomPanel makeBottomPanel(DrawingOnPanel2 histogramPanel1, DrawingOnPanel2 histogramPanel2){
+    private BottomPanel makeBottomPanel(HistogramPanel histogramPanel1, HistogramPanel histogramPanel2){
         BottomPanel bottomPanel = new BottomPanel(histogramPanel1, histogramPanel2);
         return bottomPanel;
     }
@@ -81,22 +97,22 @@ public class GUI {
         ScatterPlotOptionsPanel scatterPlotOptionsPanel = new ScatterPlotOptionsPanel(scatterPlotButtons);
         return scatterPlotOptionsPanel;
     }
-    private DrawingOnPanel1 makeScatterPlotPanel(){
-        DrawingOnPanel1 scatterPlotPanel= new DrawingOnPanel1();
+    private ScatterPlotPanel makeScatterPlotPanel(){
+        ScatterPlotPanel scatterPlotPanel= new ScatterPlotPanel();
         return scatterPlotPanel;
     }
-    private DrawingOnPanel2 makeHistogramPanel(){
-        DrawingOnPanel2 histogramPanel= new DrawingOnPanel2();
+    private HistogramPanel makeHistogramPanel(){
+        HistogramPanel histogramPanel= new HistogramPanel();
         return histogramPanel;
     }
-    private void addEventListeners(DrawingOnPanel1 scatterPlotPanel, DrawingOnPanel2 histogramPanel1, DrawingOnPanel2 histogramPanel2, ScatterPlotButtons scatterPlotButtons, ColorButtons colorButtons, ColorChooser colorChooser, Frame mainFrame){
+    private void addEventListeners(ScatterPlotPanel scatterPlotPanel, HistogramPanel histogramPanel1, HistogramPanel histogramPanel2, ScatterPlotButtons scatterPlotButtons, ColorButtons colorButtons, ColorChooser colorChooser, Frame mainFrame){
         new EventListeners(scatterPlotPanel, histogramPanel1,histogramPanel2, scatterPlotButtons,colorButtons,colorChooser, mainFrame);
     }
 
     // Variables declaration
-    private DrawingOnPanel1 scatterPlotPanel;
-    private DrawingOnPanel2 histogramPanel1;
-    private DrawingOnPanel2 histogramPanel2;
+    private ScatterPlotPanel scatterPlotPanel;
+    private HistogramPanel histogramPanel1;
+    private HistogramPanel histogramPanel2;
     private ScatterPlotButtons scatterPlotButtons;
     private ColorChooser colorChooser;
     private ColorButtons colorButtons;

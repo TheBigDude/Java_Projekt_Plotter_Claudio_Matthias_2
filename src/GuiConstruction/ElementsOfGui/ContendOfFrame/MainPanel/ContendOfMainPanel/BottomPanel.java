@@ -1,3 +1,7 @@
+package GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel;
+
+import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.HistogramPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -6,7 +10,7 @@ import java.awt.*;
  */
 public class BottomPanel extends JPanel {
     JPanel bottomPanel = new JPanel();
-    public BottomPanel (DrawingOnPanel2 panel2, DrawingOnPanel2 panel3 ){
+    public BottomPanel (HistogramPanel panel2, HistogramPanel panel3 ){
         bottomPanel.setBackground(new java.awt.Color(255, 255, 255));
         bottomPanel.setPreferredSize(new java.awt.Dimension(960,1080));
         GridLayout topLayout = new GridLayout(1,2);

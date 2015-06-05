@@ -1,3 +1,8 @@
+package VariableProcessing;
+
+import ScannAndSaveDataOfFiles.FileScanner;
+import ScannAndSaveDataOfFiles.Variable;
+
 import javax.swing.*;
 
 /**
