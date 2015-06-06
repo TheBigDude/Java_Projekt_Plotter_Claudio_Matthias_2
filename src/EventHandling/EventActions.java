@@ -49,24 +49,30 @@ public class EventActions {
 
         if(scatterPlotButtons.getLineButton().isSelected()) {
             linesActivated = true;
-            for (int cnt = 0; cnt < allCircleObjects.size(); cnt++) {
-                allCircleObjects.get(cnt).activateLines(linesActivated);
-            }
+            try{
+                for (int cnt = 0; cnt < allCircleObjects.size(); cnt++) {
+                    allCircleObjects.get(cnt).activateLines(linesActivated);
+                }
+            }catch(NullPointerException f){}
         }
         else{
             linesActivated = false;
-            for(int cnt=0;cnt < allCircleObjects.size();cnt++) {
-                allCircleObjects.get(cnt).activateLines(linesActivated);
-            }
+            try {
+                for (int cnt = 0; cnt < allCircleObjects.size(); cnt++) {
+                    allCircleObjects.get(cnt).activateLines(linesActivated);
+                }
+            }catch(NullPointerException f){}
         }
         scatterPlotPanel.updatePanel();
     }
     public void sizeSliderMouseReleased(java.awt.event.MouseEvent evt) {
 
         width = scatterPlotButtons.getSizeSlider().getValue();
-        for(int cnt=0;cnt < allCircleObjects.size();cnt++) {
-            allCircleObjects.get(cnt).changeRadius(width);
-        }
+        try{
+            for(int cnt=0;cnt < allCircleObjects.size();cnt++) {
+                allCircleObjects.get(cnt).changeRadius(width);
+            }
+        }catch(NullPointerException f){}
         scatterPlotButtons.getSizeSlider().setValue(width);
         scatterPlotPanel.updatePanel();
     }
@@ -107,22 +113,28 @@ public class EventActions {
         drawOnPanels();
     }
     public void colorButtonMouseClicked(java.awt.event.ActionEvent evt) {
-        for(int cnt=0;cnt < allCircleObjects.size();cnt++) {
-            allCircleObjects.get(cnt).changeColor(colorChooser.getColorChooser().getColor());
-            color = colorChooser.getColorChooser().getColor();
-            scatterPlotPanel.updatePanel();
+        try {
+            for (int cnt = 0; cnt < allCircleObjects.size(); cnt++) {
+                allCircleObjects.get(cnt).changeColor(colorChooser.getColorChooser().getColor());
+                color = colorChooser.getColorChooser().getColor();
+                scatterPlotPanel.updatePanel();
+            }
         }
+        catch(NullPointerException f){}
     }
     public void colorButton2MouseClicked(java.awt.event.ActionEvent evt) {
-        histogramObject1.getCreatedHistograms().changeColor(colorChooser.getColorChooser().getColor());
-        histogramColor1 = colorChooser.getColorChooser().getColor();
-        histogramPanel1.updatePanel();
-
+        try{
+            histogramObject1.getCreatedHistograms().changeColor(colorChooser.getColorChooser().getColor());
+            histogramColor1 = colorChooser.getColorChooser().getColor();
+            histogramPanel1.updatePanel();
+        }catch(NullPointerException f){}
     }
     public void colorButton3MouseClicked(java.awt.event.ActionEvent evt) {
-        histogramObject2.getCreatedHistograms().changeColor(colorChooser.getColorChooser().getColor());
-        histogramColor2 = colorChooser.getColorChooser().getColor();
-        histogramPanel2.updatePanel();
+        try {
+            histogramObject2.getCreatedHistograms().changeColor(colorChooser.getColorChooser().getColor());
+            histogramColor2 = colorChooser.getColorChooser().getColor();
+            histogramPanel2.updatePanel();
+        }catch(NullPointerException f){}
     }
     public void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
         File1 = NewAction();
@@ -165,20 +177,22 @@ public class EventActions {
         System.exit(0);
     }
     private void drawOnPanels(){
-        if (xIsVariable1 && yIsVariable2){
-            scatterPlotPanel.addCircles(allCircleObjects.get(0));
-        }
-        if(xIsVariable1 && yIsVariable1){
-            scatterPlotPanel.addCircles(allCircleObjects.get(1));
-        }
-        if(xIsVariable2 && yIsVariable1){
-            scatterPlotPanel.addCircles(allCircleObjects.get(2));
-        }
-        if(xIsVariable2 && yIsVariable2){
-            scatterPlotPanel.addCircles(allCircleObjects.get(3));
-        }
-        histogramPanel1.addHistogram(histogramObject1.getCreatedHistograms());
-        histogramPanel2.addHistogram(histogramObject2.getCreatedHistograms());
+        try {
+            if (xIsVariable1 && yIsVariable2) {
+                scatterPlotPanel.addCircles(allCircleObjects.get(0));
+            }
+            if (xIsVariable1 && yIsVariable1) {
+                scatterPlotPanel.addCircles(allCircleObjects.get(1));
+            }
+            if (xIsVariable2 && yIsVariable1) {
+                scatterPlotPanel.addCircles(allCircleObjects.get(2));
+            }
+            if (xIsVariable2 && yIsVariable2) {
+                scatterPlotPanel.addCircles(allCircleObjects.get(3));
+            }
+            histogramPanel1.addHistogram(histogramObject1.getCreatedHistograms());
+            histogramPanel2.addHistogram(histogramObject2.getCreatedHistograms());
+        }catch(NullPointerException f){}
     }
     private ActionNewFile NewAction(){
         ActionNewFile NewAction = new ActionNewFile();

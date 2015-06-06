@@ -1,4 +1,4 @@
-package ScannAndSaveDataOfFiles;
+package ScanAndSaveDataOfFiles;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,8 +11,8 @@ public class FileScanner {
     String file;
     Variable variable1;
     Variable variable2;
-    public FileScanner(String filename){
-        file = filename;
+    public FileScanner(String fileName){
+        file = fileName;
         ArrayList<Variable> bothObjects = readFile(file);
         variable1 = bothObjects.get(0);
         variable2 = bothObjects.get(1);
@@ -70,7 +70,6 @@ public class FileScanner {
                         if (cnt0 == numberOfVariables + 3) {
                             String line = fileScannerObject.nextLine();
                             String[] values = line.split("\\;");
-                            System.out.println(cnt0);
                             int cnt2 = 0;
                             while (cnt2 < values.length) {
 
