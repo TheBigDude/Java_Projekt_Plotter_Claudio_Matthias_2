@@ -8,8 +8,10 @@ import java.awt.*;
 /**
  * Created by Matthias on 03.06.2015.
  */
+// Creates the parent panel for the two histogram panels
 public class BottomPanel extends JPanel {
     JPanel bottomPanel = new JPanel();
+
     public BottomPanel (HistogramPanel panel2, HistogramPanel panel3 ){
         bottomPanel.setBackground(new java.awt.Color(255, 255, 255));
         bottomPanel.setPreferredSize(new java.awt.Dimension(960,1080));
@@ -18,6 +20,7 @@ public class BottomPanel extends JPanel {
         bottomPanel.add(panel2);
         bottomPanel.add(panel3);
     }
+
     public JPanel getBottomPanel(){
         return bottomPanel;
     }

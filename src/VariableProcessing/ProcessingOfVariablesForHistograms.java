@@ -9,6 +9,9 @@ import java.util.Collections;
 /**
  * Created by Matthias on 28.05.2015.
  */
+//calculates the coordinates of the different rectangles building the Histograms, by
+//taking the actual size of the panel to draw them on (histogramPanel1/2) created by HistogramPanel class
+//by passing the calculated values to CreationOfHistograms class
 public class ProcessingOfVariablesForHistograms {
     ArrayList<Float> values= new ArrayList<Float>();
     HistogramPanel panel;
@@ -57,11 +60,13 @@ public class ProcessingOfVariablesForHistograms {
         }
         createdHistograms = CreateHistograms(coordsY,imageWidthOfBin,imageHeight,color);
     }
-    private CreationOfHistograms CreateHistograms(ArrayList<Float> valuesY, int width, int height,Color color){
-        CreationOfHistograms createdHistograms = new CreationOfHistograms(valuesY,width, height,color);
+
+    public CreationOfHistograms getCreatedHistograms(){
         return createdHistograms;
     }
-    public CreationOfHistograms getCreatedHistograms(){
+
+    private CreationOfHistograms CreateHistograms(ArrayList<Float> valuesY, int width, int height,Color color){
+        CreationOfHistograms createdHistograms = new CreationOfHistograms(valuesY,width, height,color);
         return createdHistograms;
     }
 }

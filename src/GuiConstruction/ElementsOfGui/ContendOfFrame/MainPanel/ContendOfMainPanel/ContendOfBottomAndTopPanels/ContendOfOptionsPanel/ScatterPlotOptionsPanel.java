@@ -6,6 +6,7 @@ import java.awt.*;
 /**
  * Created by Matthias on 03.06.2015.
  */
+// Creates a panel containing all the buttons made by ScatterPlotOptionsPanel class
 public class ScatterPlotOptionsPanel extends JPanel {
     JPanel spOptionsPanel = new JPanel();
     public ScatterPlotOptionsPanel(ScatterPlotButtons scatterPlotButtons){

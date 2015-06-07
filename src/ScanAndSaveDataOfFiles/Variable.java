@@ -3,6 +3,7 @@ package ScanAndSaveDataOfFiles; /**
  */
 import java.util.ArrayList;
 
+// stores the data it gets from FileScanner class
 public class Variable {
 
     String variableName;

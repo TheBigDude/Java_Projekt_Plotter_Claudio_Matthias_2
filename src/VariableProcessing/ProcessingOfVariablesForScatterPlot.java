@@ -9,6 +9,9 @@ import java.util.Collections;
 /**
  * Created by Matthias on 17.05.2015.
  */
+//calculates the coordinates of the different circles building the scatter plot, by
+//taking the actual size of the panel to draw them on (scatterPlotPanel) created by ScatterPlotPanel class, the initial width "width" and the
+// initial color "color" by passing the calculated values to CreationOfCircles class
 public class ProcessingOfVariablesForScatterPlot {
     ArrayList<Float> coordinatesV1X = new ArrayList<Float>();
     ArrayList<Float> coordinatesV2X = new ArrayList<Float>();
@@ -62,12 +65,14 @@ public class ProcessingOfVariablesForScatterPlot {
         CreationOfCircles circles4 = makeCircles(coordinatesV2X,coordinatesV2Y,width,color);
         allCircles.add(circles4);
     }
+
+    public ArrayList<CreationOfCircles> getAllCircles(){
+        return allCircles;
+    }
+
     private CreationOfCircles makeCircles(ArrayList<Float> coordinatesX, ArrayList<Float> coordinatesY, int width, Color color) {
         CreationOfCircles createdCircles = new CreationOfCircles(coordinatesX,coordinatesY,width,color);
         return createdCircles;
-    }
-    public ArrayList<CreationOfCircles> getAllCircles(){
-        return allCircles;
     }
 }
 

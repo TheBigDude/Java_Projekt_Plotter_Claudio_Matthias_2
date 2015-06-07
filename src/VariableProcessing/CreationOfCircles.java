@@ -6,6 +6,11 @@ import java.util.ArrayList;
 /**
  * Created by Matthias on 17.05.2015.
  */
+// draws circles with the processed values which it gets
+// by ProcessingOfVariablesForScatterPlot class
+// on the scatterPlotPanel, when method "draw()" is called by ScatterPlotPanel class
+// the instance variables color and width are changeable by calling the methods changeColor/Radius
+// in the event routine
 public class CreationOfCircles {
     ArrayList<Float> coordinatesX = new ArrayList<Float>();
     ArrayList<Float> coordinatesY = new ArrayList<Float>();

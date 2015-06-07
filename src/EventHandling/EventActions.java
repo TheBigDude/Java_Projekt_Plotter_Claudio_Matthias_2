@@ -4,7 +4,6 @@ import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel
 import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ScatterPlotButtons;
 import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.HistogramPanel;
 import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ScatterPlotPanel;
-import GuiConstruction.ElementsOfGui.ExceptionFrame;
 import VariableProcessing.ActionNewFile;
 import VariableProcessing.CreationOfCircles;
 import VariableProcessing.ProcessingOfVariablesForHistograms;
@@ -16,6 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by Matthias on 04.06.2015.
  */
+// stores the methods being triggered by the events of EventListeners class
 public class EventActions {
     GuiConstruction.ElementsOfGui.Frame mainFrame;
     ScatterPlotPanel scatterPlotPanel;
@@ -23,15 +23,18 @@ public class EventActions {
     HistogramPanel histogramPanel2;
     ScatterPlotButtons scatterPlotButtons;
     ColorChooser colorChooser;
+
+    ArrayList<CreationOfCircles> allCircleObjects;
+    ProcessingOfVariablesForHistograms histogramObject1;
+    ProcessingOfVariablesForHistograms histogramObject2;
+    ActionNewFile File1;
+
+    //Initial values for Plot settings
     boolean xIsVariable1 = true;
     boolean xIsVariable2 = false;
     boolean yIsVariable1 = false;
     boolean yIsVariable2 = true;
     boolean linesActivated;
-    ArrayList<CreationOfCircles> allCircleObjects;
-    ProcessingOfVariablesForHistograms histogramObject1;
-    ProcessingOfVariablesForHistograms histogramObject2;
-    ActionNewFile File1;
     int width = 5;
     Color histogramColor1 = Color.GREEN;
     Color histogramColor2 = Color.MAGENTA;
@@ -46,6 +49,7 @@ public class EventActions {
         this.colorChooser = colorChooser;
     }
 
+    // actions being performed on the different elements
     public void lineButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
         if(scatterPlotButtons.getLineButton().isSelected()) {
@@ -196,6 +200,8 @@ public class EventActions {
     public void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
     }
+
+    //Add the calculated plots to their panels
     private void drawOnPanels(){
         try {
             if (xIsVariable1 && yIsVariable2) {
@@ -217,6 +223,8 @@ public class EventActions {
             exceptionFrame.getExceptionFrame();
         }
     }
+
+    //Constructors
     private ActionNewFile NewAction(){
         ActionNewFile NewAction = new ActionNewFile();
         return NewAction;

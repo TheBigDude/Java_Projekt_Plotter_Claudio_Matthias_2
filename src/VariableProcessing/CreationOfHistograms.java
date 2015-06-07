@@ -6,6 +6,11 @@ import java.util.ArrayList;
 /**
  * Created by Matthias on 28.05.2015.
  */
+// draws histograms with the processed values which it gets
+// by ProcessingOfVariablesForHistograms class
+// on an object of HistogramPanel class, when method "drawHistogram()" is called by HistogramPanel class
+// the instance variable color is changeable by calling the method changeColor
+// in the event routine
 public class CreationOfHistograms {
     ArrayList<Float> valuesY;
     int imageWidthOfBin;

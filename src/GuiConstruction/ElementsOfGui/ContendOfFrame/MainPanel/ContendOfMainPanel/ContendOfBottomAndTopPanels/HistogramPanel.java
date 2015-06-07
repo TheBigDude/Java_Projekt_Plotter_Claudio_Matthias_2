@@ -8,9 +8,11 @@ import java.awt.*;
 /**
  * Created by Matthias on 19.05.2015.
  */
+// Creates a panel which is able to trigger the drawing of the histograms on itself by calling its method addHistogram
 public class HistogramPanel extends JPanel {
     CreationOfHistograms histograms;
     String name;
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -18,7 +20,7 @@ public class HistogramPanel extends JPanel {
             histograms.drawHistogram(g);
         }
         if(name!= null){
-            setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(), "Histogram 1: " + name));
+            setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(), "Histogram:" + name));
         }
         else{setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));}
         setBackground(new java.awt.Color(255, 255, 255));
@@ -29,10 +31,6 @@ public class HistogramPanel extends JPanel {
     public void addHistogram(CreationOfHistograms histogram) {
         histograms = histogram;
         repaint();
-    }
-    public void clearPanel2(){
-        removeAll();
-        histograms = null;
     }
     public void updatePanel(){
         repaint();

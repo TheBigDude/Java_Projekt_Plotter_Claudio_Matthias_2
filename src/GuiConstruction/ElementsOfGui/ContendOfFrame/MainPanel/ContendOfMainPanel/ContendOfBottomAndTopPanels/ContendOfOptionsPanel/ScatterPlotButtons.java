@@ -5,6 +5,7 @@ import javax.swing.*;
 /**
  * Created by Matthias on 03.06.2015.
  */
+// Creates the various buttons for the options on the scatter plot
 public class ScatterPlotButtons  {
     JLabel xAxisLabel;
     JLabel yAxisLabel;
@@ -20,6 +21,7 @@ public class ScatterPlotButtons  {
 
     JCheckBox lineButton;
     JSlider sizeSlider;
+
     public ScatterPlotButtons(){
         sizeLabel = new JLabel();
         yAxisLabel = new JLabel();
@@ -70,35 +72,27 @@ public class ScatterPlotButtons  {
     public JLabel getXAxisLabel() {
         return xAxisLabel;
     }
-
     public JLabel getYAxisLabel() {
         return yAxisLabel;
     }
-
     public JLabel getSizeLabel() {
         return sizeLabel;
     }
-
     public JRadioButton getRadioButton1() {
         return jRadioButton1;
     }
-
     public JRadioButton getRadioButton2() {
         return jRadioButton2;
     }
-
     public JRadioButton getRadioButton3() {
         return jRadioButton3;
     }
-
     public JRadioButton getRadioButton4() {
         return jRadioButton4;
     }
-
     public JCheckBox getLineButton() {
         return lineButton;
     }
-
     public JSlider getSizeSlider() {
         return sizeSlider;
     }

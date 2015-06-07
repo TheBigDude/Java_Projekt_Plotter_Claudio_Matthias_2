@@ -8,6 +8,7 @@ import java.awt.*;
 /**
  * Created by Matthias on 17.05.2015.
  */
+// Creates a panel, which has the ability to trigger the drawing of the scatterplot by calling its method addCircles
 public class ScatterPlotPanel extends JPanel {
    CreationOfCircles circles;
 

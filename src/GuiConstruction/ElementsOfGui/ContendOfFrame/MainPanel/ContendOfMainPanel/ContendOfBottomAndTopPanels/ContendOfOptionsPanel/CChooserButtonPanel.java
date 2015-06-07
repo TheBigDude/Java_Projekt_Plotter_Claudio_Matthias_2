@@ -6,6 +6,7 @@ import java.awt.*;
 /**
  * Created by Matthias on 03.06.2015.
  */
+// Creates a panel containing the 3 Buttons made by the ColorButtons class
 public class CChooserButtonPanel extends JPanel {
     JPanel cChooserButtonPanel = new JPanel();
 

@@ -7,8 +7,10 @@ import java.awt.*;
 /**
  * Created by Matthias on 03.06.2015.
  */
+// Creates a colorChooser for CChooserPanel class
 public class ColorChooser {
     JColorChooser jColorChooser;
+
     public ColorChooser(){
         jColorChooser = new JColorChooser();
         //Color Chooser setup

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by Matthias on 16.05.2015.
  */
+// Scanns the file chosen in ActionNewFile class, and storing the data in Variable class
 public class FileScanner {
     String file;
     Variable variable1;
@@ -17,12 +18,11 @@ public class FileScanner {
         variable1 = bothObjects.get(0);
         variable2 = bothObjects.get(1);
     }
-    public Variable getVariable1(){
-        return variable1;
-    }
-    public Variable getVariable2(){
-        return variable2;
-    }
+   // reading the file chosen by fileChooser in the ActionNewFile class, and stores the read values in Variable class
+   // the format is limited to two variables, tab or line delimited, the method readFile is able to know by it self which format
+   // given file has, by comparing the first read lines to the two known format properties
+   // by extending these settings other data format, or, 3 or more variables would be supported.
+   // only thing necessary would be to create more objects of Variable class.
     private static ArrayList<Variable> readFile(String fileName) {
         File inputFileObject = new File(fileName);
         java.util.Scanner fileScannerObject = null;
@@ -124,6 +124,13 @@ public class FileScanner {
             dataModelObject.add(variableObject2);
         }
         return dataModelObject;
+    }
+
+    public Variable getVariable1(){
+        return variable1;
+    }
+    public Variable getVariable2(){
+        return variable2;
     }
 }
 

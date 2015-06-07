@@ -6,8 +6,10 @@ import java.awt.*;
 /**
  * Created by Matthias on 03.06.2015.
  */
+//Creates the parent panel for the different panels containing all the elements for the plot settings
 public class OptionsPanel extends JPanel {
     JPanel optionsPanel = new JPanel();
+
     public OptionsPanel(JPanel spOptionsPanel, JPanel cChooserPanel, JPanel cChooserButtonPanel){
         optionsPanel.setBackground(new java.awt.Color(255, 255, 255));
         optionsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -17,6 +19,7 @@ public class OptionsPanel extends JPanel {
         optionsPanel.add(cChooserPanel, BorderLayout.CENTER);
         optionsPanel.add(cChooserButtonPanel, BorderLayout.EAST);
     }
+
     public JPanel getOptionsPanel(){
         return optionsPanel;
     }

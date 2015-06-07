@@ -21,10 +21,15 @@ import java.awt.*;
  * Created by Matthias on 17.05.2015.
  */
 public class GUI {
-
+    //Central Point of all classes combining all elements of the program
+    //GUI() called in Main class will show the main Frame containing all
+    //functions and elements.
     public GUI() {
         initComponents();
     }
+
+    //set up all elements of the GUI
+
 
     private void initComponents() {
 
@@ -36,9 +41,10 @@ public class GUI {
         histogramPanel2 = makeHistogramPanel();
         mainFrame = makeFrame();
 
-        //eventRoutine setzen
+        //add event routine to the elements
         addEventListeners(scatterPlotPanel, histogramPanel1,histogramPanel2, scatterPlotButtons,colorButtons,colorChooser, mainFrame);
 
+        //adding all elements to their panels, and adding all panels to their parent panel
         ScatterPlotOptionsPanel spOptionsPanel = makeScatterPlotOptionsPanel(scatterPlotButtons);
         CChooserPanel cChooserPanel = makeCChooserPanel(colorChooser.getColorChooser());
         CChooserButtonPanel cChooserButtonPanel = makeCChooserButtonPanel(colorButtons.getColorButton(),colorButtons.getColorButton2(),colorButtons.getColorButton3());
@@ -52,7 +58,7 @@ public class GUI {
         mainFrame.getFrame().setVisible(true);
     }
 
-    //Objekte initialisieren;
+    //Constructors
     private ColorButtons makeColorButtons(){
         ColorButtons colorButtons = new ColorButtons();
         return colorButtons;
@@ -117,5 +123,4 @@ public class GUI {
     private ColorChooser colorChooser;
     private ColorButtons colorButtons;
     private Frame mainFrame;
-    // End of variables declaration
 }
