@@ -4,6 +4,7 @@ import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel
 import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ContendOfOptionsPanel.ScatterPlotButtons;
 import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.HistogramPanel;
 import GuiConstruction.ElementsOfGui.ContendOfFrame.MainPanel.ContendOfMainPanel.ContendOfBottomAndTopPanels.ScatterPlotPanel;
+import GuiConstruction.ElementsOfGui.ExceptionFrame;
 import VariableProcessing.ActionNewFile;
 import VariableProcessing.CreationOfCircles;
 import VariableProcessing.ProcessingOfVariablesForHistograms;
@@ -53,15 +54,22 @@ public class EventActions {
                 for (int cnt = 0; cnt < allCircleObjects.size(); cnt++) {
                     allCircleObjects.get(cnt).activateLines(linesActivated);
                 }
-            }catch(NullPointerException f){}
+            }catch(NullPointerException npe){
+                ExceptionFrame exceptionFrame= new ExceptionFrame();
+                exceptionFrame.getExceptionFrame();
+            }
         }
+
         else{
             linesActivated = false;
             try {
                 for (int cnt = 0; cnt < allCircleObjects.size(); cnt++) {
                     allCircleObjects.get(cnt).activateLines(linesActivated);
                 }
-            }catch(NullPointerException f){}
+            }catch(NullPointerException npe) {
+                ExceptionFrame exceptionFrame = new ExceptionFrame();
+                exceptionFrame.getExceptionFrame();
+            }
         }
         scatterPlotPanel.updatePanel();
     }
@@ -72,7 +80,10 @@ public class EventActions {
             for(int cnt=0;cnt < allCircleObjects.size();cnt++) {
                 allCircleObjects.get(cnt).changeRadius(width);
             }
-        }catch(NullPointerException f){}
+        }catch(NullPointerException npe) {
+            ExceptionFrame exceptionFrame = new ExceptionFrame();
+            exceptionFrame.getExceptionFrame();
+        }
         scatterPlotButtons.getSizeSlider().setValue(width);
         scatterPlotPanel.updatePanel();
     }
@@ -120,21 +131,30 @@ public class EventActions {
                 scatterPlotPanel.updatePanel();
             }
         }
-        catch(NullPointerException f){}
+        catch(NullPointerException npe) {
+            ExceptionFrame exceptionFrame = new ExceptionFrame();
+            exceptionFrame.getExceptionFrame();
+        }
     }
     public void colorButton2MouseClicked(java.awt.event.ActionEvent evt) {
         try{
             histogramObject1.getCreatedHistograms().changeColor(colorChooser.getColorChooser().getColor());
             histogramColor1 = colorChooser.getColorChooser().getColor();
             histogramPanel1.updatePanel();
-        }catch(NullPointerException f){}
+        }catch(NullPointerException npe) {
+            ExceptionFrame exceptionFrame = new ExceptionFrame();
+            exceptionFrame.getExceptionFrame();
+        }
     }
     public void colorButton3MouseClicked(java.awt.event.ActionEvent evt) {
         try {
             histogramObject2.getCreatedHistograms().changeColor(colorChooser.getColorChooser().getColor());
             histogramColor2 = colorChooser.getColorChooser().getColor();
             histogramPanel2.updatePanel();
-        }catch(NullPointerException f){}
+        }catch(NullPointerException npe) {
+            ExceptionFrame exceptionFrame = new ExceptionFrame();
+            exceptionFrame.getExceptionFrame();
+        }
     }
     public void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
         File1 = NewAction();
@@ -192,7 +212,10 @@ public class EventActions {
             }
             histogramPanel1.addHistogram(histogramObject1.getCreatedHistograms());
             histogramPanel2.addHistogram(histogramObject2.getCreatedHistograms());
-        }catch(NullPointerException f){}
+        }catch(NullPointerException npe) {
+            ExceptionFrame exceptionFrame = new ExceptionFrame();
+            exceptionFrame.getExceptionFrame();
+        }
     }
     private ActionNewFile NewAction(){
         ActionNewFile NewAction = new ActionNewFile();
