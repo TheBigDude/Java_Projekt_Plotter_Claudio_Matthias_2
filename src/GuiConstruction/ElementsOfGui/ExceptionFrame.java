@@ -9,8 +9,10 @@ public class ExceptionFrame {
     JFrame exceptionFrame = new JFrame();
 
     public ExceptionFrame(){
-        JOptionPane.showMessageDialog(exceptionFrame, "Bitte waelen sie eine Datei aus. (Datei, neue Datei)");
-
+        JOptionPane.showMessageDialog(exceptionFrame,
+                "Bitte lesen sie eine Datei mit Daten ein. (Datei, neue Datei",
+                "Data error",
+                JOptionPane.ERROR_MESSAGE);
     }
 
     public JFrame getExceptionFrame(){
