@@ -27,7 +27,7 @@ public class ProcessingOfVariablesForScatterPlot {
         valuesY = File1.getVariable2().getValues();
         int panelWidth = scatterPlotPanel.getWidth();
         int panelHeight = scatterPlotPanel.getHeight();
-        int BORDER = 50;
+        final int BORDER = 50;
         int widthOfDrawing = panelWidth - 2 * BORDER;
         int heightOfDrawing = panelHeight - 2 * BORDER;
 

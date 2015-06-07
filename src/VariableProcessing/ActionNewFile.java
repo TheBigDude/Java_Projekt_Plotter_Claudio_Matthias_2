@@ -11,10 +11,24 @@ import javax.swing.*;
 public class ActionNewFile {
     Variable variable1;
     Variable variable2;
-    String fileName;
+    static String fileName;
     public ActionNewFile() {
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(null);
+
+        if(fc.getSelectedFile() == null){
+            if(getFileName() != null){
+                FileScanner File1 = scanFile(fileName); // Hier wird einfach repaintet mit altem filename
+                variable1 = File1.getVariable1();
+                variable2 = File1.getVariable2();
+                return;
+            }
+            else{
+                while(fc.getSelectedFile() == null){ // Lösung nicht so elegant. Am besten if Bedingung machen und
+                    fc.showOpenDialog(null);         // File Chooser beenden und an den Anfang des Programms springen
+                }
+            }
+        }
         fileName = fc.getSelectedFile().getName();
         FileScanner File1 = scanFile(fileName);
         variable1 = File1.getVariable1();
